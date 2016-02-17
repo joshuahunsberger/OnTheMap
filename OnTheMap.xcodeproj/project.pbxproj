@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		429918B71C7422DA0057874B /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 429918B61C7422DA0057874B /* Roboto-Regular.ttf */; };
+		429918B91C7422FA0057874B /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 429918B81C7422FA0057874B /* Roboto-Medium.ttf */; };
+		429918BB1C7423310057874B /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 429918BA1C7423310057874B /* Roboto-Thin.ttf */; };
 		42E936991C714FC500990340 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E936981C714FC500990340 /* AppDelegate.swift */; };
 		42E9369B1C714FC500990340 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E9369A1C714FC500990340 /* ViewController.swift */; };
 		42E9369E1C714FC500990340 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42E9369C1C714FC500990340 /* Main.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		429918B61C7422DA0057874B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "../../../../../Downloads/on the map assets/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		429918B81C7422FA0057874B /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "../../../../../Downloads/on the map assets/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		429918BA1C7423310057874B /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Thin.ttf"; path = "../../../../../Downloads/on the map assets/Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		42E936951C714FC500990340 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E936981C714FC500990340 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42E9369A1C714FC500990340 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +65,9 @@
 				42E9369C1C714FC500990340 /* Main.storyboard */,
 				42E9369F1C714FC500990340 /* Assets.xcassets */,
 				42E936A11C714FC500990340 /* LaunchScreen.storyboard */,
+				429918B61C7422DA0057874B /* Roboto-Regular.ttf */,
+				429918B81C7422FA0057874B /* Roboto-Medium.ttf */,
+				429918BA1C7423310057874B /* Roboto-Thin.ttf */,
 				42E936A41C714FC500990340 /* Info.plist */,
 			);
 			path = OnTheMap;
@@ -122,8 +131,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429918B91C7422FA0057874B /* Roboto-Medium.ttf in Resources */,
 				42E936A31C714FC500990340 /* LaunchScreen.storyboard in Resources */,
+				429918BB1C7423310057874B /* Roboto-Thin.ttf in Resources */,
 				42E936A01C714FC500990340 /* Assets.xcassets in Resources */,
+				429918B71C7422DA0057874B /* Roboto-Regular.ttf in Resources */,
 				42E9369E1C714FC500990340 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +298,7 @@
 				42E936A91C714FC500990340 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
