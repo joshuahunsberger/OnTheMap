@@ -12,6 +12,7 @@
 		429918BB1C7423310057874B /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 429918BA1C7423310057874B /* Roboto-Thin.ttf */; };
 		429918BD1C756CA90057874B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429918BC1C756CA90057874B /* MapViewController.swift */; };
 		429918BF1C756D660057874B /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429918BE1C756D660057874B /* LocationTableViewController.swift */; };
+		429918C11C756E1D0057874B /* InformationPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429918C01C756E1D0057874B /* InformationPostingViewController.swift */; };
 		42E936991C714FC500990340 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E936981C714FC500990340 /* AppDelegate.swift */; };
 		42E9369B1C714FC500990340 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E9369A1C714FC500990340 /* LoginViewController.swift */; };
 		42E9369E1C714FC500990340 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42E9369C1C714FC500990340 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		429918BA1C7423310057874B /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		429918BC1C756CA90057874B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		429918BE1C756D660057874B /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
+		429918C01C756E1D0057874B /* InformationPostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationPostingViewController.swift; sourceTree = "<group>"; };
 		42E936951C714FC500990340 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E936981C714FC500990340 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42E9369A1C714FC500990340 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				42E9369A1C714FC500990340 /* LoginViewController.swift */,
 				429918BC1C756CA90057874B /* MapViewController.swift */,
 				429918BE1C756D660057874B /* LocationTableViewController.swift */,
+				429918C01C756E1D0057874B /* InformationPostingViewController.swift */,
 				42E9369C1C714FC500990340 /* Main.storyboard */,
 				42E9369F1C714FC500990340 /* Assets.xcassets */,
 				42E936A11C714FC500990340 /* LaunchScreen.storyboard */,
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				429918BF1C756D660057874B /* LocationTableViewController.swift in Sources */,
+				429918C11C756E1D0057874B /* InformationPostingViewController.swift in Sources */,
 				42E9369B1C714FC500990340 /* LoginViewController.swift in Sources */,
 				429918BD1C756CA90057874B /* MapViewController.swift in Sources */,
 				42E936991C714FC500990340 /* AppDelegate.swift in Sources */,
