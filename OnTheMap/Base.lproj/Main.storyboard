@@ -17,7 +17,7 @@
         <!--Login View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Login View" id="BYZ-38-t0r" customClass="ViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Login View" id="BYZ-38-t0r" customClass="LoginViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -127,7 +127,7 @@
         <!--Information Posting View-->
         <scene sceneID="vas-7e-1MI">
             <objects>
-                <viewController title="Information Posting View" id="y6A-WU-1dS" sceneMemberID="viewController">
+                <viewController title="Information Posting View" id="y6A-WU-1dS" customClass="InformationPostingViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nTn-Ir-UCk"/>
                         <viewControllerLayoutGuide type="bottom" id="kaV-UJ-nps"/>
@@ -151,7 +151,7 @@
         <!--List-->
         <scene sceneID="yyU-pU-ZXm">
             <objects>
-                <viewController id="Hke-Y6-Ugo" sceneMemberID="viewController">
+                <viewController id="Hke-Y6-Ugo" customClass="LocationTableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="67j-ZX-ek4"/>
                         <viewControllerLayoutGuide type="bottom" id="hNE-Mw-Awm"/>
@@ -212,7 +212,7 @@
         <!--Map-->
         <scene sceneID="unx-lA-yHH">
             <objects>
-                <viewController id="1jm-ws-bYW" sceneMemberID="viewController">
+                <viewController id="1jm-ws-bYW" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VCo-3Z-CSJ"/>
                         <viewControllerLayoutGuide type="bottom" id="UR0-k6-mog"/>
