@@ -160,12 +160,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QYf-84-9QG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QYf-84-9QG">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QYf-84-9QG" firstAttribute="leading" secondItem="s0c-B5-uOa" secondAttribute="leading" id="17p-nB-PG1"/>
+                            <constraint firstAttribute="trailing" secondItem="QYf-84-9QG" secondAttribute="trailing" id="Ldt-hU-FEn"/>
+                            <constraint firstItem="hNE-Mw-Awm" firstAttribute="top" secondItem="QYf-84-9QG" secondAttribute="bottom" id="m8X-bA-K1f"/>
+                            <constraint firstItem="QYf-84-9QG" firstAttribute="top" secondItem="67j-ZX-ek4" secondAttribute="bottom" id="nyj-VT-tuy"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="List" image="List" id="Uu5-4S-u2c"/>
                 </viewController>
@@ -185,11 +191,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="haO-rK-Pdx">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="haO-rK-Pdx">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="haO-rK-Pdx" secondAttribute="trailing" id="VHZ-jB-VI4"/>
+                            <constraint firstItem="haO-rK-Pdx" firstAttribute="top" secondItem="VCo-3Z-CSJ" secondAttribute="bottom" id="bBW-IC-PS9"/>
+                            <constraint firstItem="haO-rK-Pdx" firstAttribute="leading" secondItem="Fbx-aR-yq6" secondAttribute="leading" id="moc-GR-ao3"/>
+                            <constraint firstItem="UR0-k6-mog" firstAttribute="top" secondItem="haO-rK-Pdx" secondAttribute="bottom" id="zaQ-ji-a3N"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="Map" id="2fq-yr-gqS"/>
                 </viewController>
