@@ -22,7 +22,7 @@ class UdacityClient : NSObject {
     
     // MARK: GET
     
-    func taskForGetMethod(method: String, parameters: [String: AnyObject], completionHandlerForGet: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask{
+    func taskForGetMethod(method: String, parameters: [String: AnyObject], completionHandlerForGet: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
         // Build the URL and configure the request
         let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/\(method)")!)
@@ -62,7 +62,7 @@ class UdacityClient : NSObject {
     
     // MARK: POST
     
-    func taskForPostMethod(method: String, parameters: [String: AnyObject], jsonBody: [String: AnyObject], completionHandlerForPost: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask{
+    func taskForPostMethod(method: String, parameters: [String: AnyObject], jsonBody: [String: AnyObject], completionHandlerForPost: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
         // Build the URL and configure the request
         let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/\(method)")!)
@@ -106,6 +106,55 @@ class UdacityClient : NSObject {
             self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForPost)
         }
         // Start the request
+        task.resume()
+        
+        return task
+    }
+    
+    // MARK: DELETE
+    
+    func taskForDeleteMethod(method: String, completionHandlerForDelete: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        // Build the URL and configure the request
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/\(method)")!)
+        request.HTTPMethod = "DELETE"
+        
+        var xsrfCookie: NSHTTPCookie? = nil
+        let sharedCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        
+        for cookie in sharedCookieStorage.cookies! {
+            if (cookie.name == "XSRF-TOKEN") { xsrfCookie = cookie }
+        }
+        
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        
+        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+            func sendError(error: String){
+                let userInfo = [NSLocalizedDescriptionKey: error]
+                completionHandlerForDelete(result: nil, error: NSError(domain: "taskForDeleteMethod", code: 1, userInfo: userInfo))
+            }
+            
+            // Check for any error conditions from the request
+            
+            guard (error == nil) else {
+                sendError("There was an error with your request: \(error)")
+                return
+            }
+            
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                sendError("Request returned invalid status code.")
+                return
+            }
+            
+            guard let data = data else{
+                sendError("No data returned.")
+                return
+            }
+            
+            // Parse the result and send it to the completion handler
+            self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForDelete)
+        }
         task.resume()
         
         return task
