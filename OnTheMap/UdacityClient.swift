@@ -22,10 +22,10 @@ class UdacityClient : NSObject {
     
     // MARK: GET
     
-    func taskForGetMethod(method: String, parameters: [String: AnyObject], completionHandlerForGet: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForGetMethod(method: String, parameters: [String: AnyObject]?, completionHandlerForGet: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
         // Build the URL and configure the request
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/\(method)")!)
+        let request = NSMutableURLRequest(URL: udacityURLFromParameters(method, parameters: parameters))
         
         // Make the request
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
@@ -40,10 +40,10 @@ class UdacityClient : NSObject {
     
     // MARK: POST
     
-    func taskForPostMethod(method: String, parameters: [String: AnyObject], jsonBody: [String: AnyObject], completionHandlerForPost: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForPostMethod(method: String, parameters: [String: AnyObject]?, jsonBody: [String: AnyObject], completionHandlerForPost: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
         // Build the URL and configure the request
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/\(method)")!)
+        let request = NSMutableURLRequest(URL: udacityURLFromParameters(method, parameters: parameters))
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -72,7 +72,7 @@ class UdacityClient : NSObject {
     
     func taskForDeleteMethod(method: String, completionHandlerForDelete: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         // Build the URL and configure the request
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/\(method)")!)
+        let request = NSMutableURLRequest(URL: udacityURLFromParameters(method, parameters: nil))
         request.HTTPMethod = "DELETE"
         
         var xsrfCookie: NSHTTPCookie? = nil
@@ -137,6 +137,25 @@ class UdacityClient : NSObject {
         }
         
         convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForProcessData)
+    }
+    
+    func udacityURLFromParameters(method: String, parameters: [String: AnyObject]?) -> NSURL{
+        
+        let components = NSURLComponents()
+        components.scheme = UdacityClient.Constants.ApiScheme
+        components.host = UdacityClient.Constants.ApiHost
+        components.path = UdacityClient.Constants.ApiPath + method
+
+        // Append parameters, if there are any
+        if let parameters = parameters {
+            components.queryItems = [NSURLQueryItem]()
+            for(key,value) in parameters {
+                let queryItem = NSURLQueryItem(name: key, value: "\(value)")
+                components.queryItems!.append(queryItem)
+            }
+        }
+        
+        return components.URL!
     }
     
 }
