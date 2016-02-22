@@ -29,30 +29,8 @@ class UdacityClient : NSObject {
         
         // Make the request
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
-            func sendError(error: String){
-                let userInfo = [NSLocalizedDescriptionKey: error]
-                completionHandlerForGet(result: nil, error: NSError(domain: "taskForGetMethod", code: 1, userInfo: userInfo))
-            }
-            
-            // Check for any error conditions from the request
-            
-            guard (error == nil) else {
-                sendError("There was an error with your request: \(error)")
-                return
-            }
-            
-            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
-                sendError("Request returned invalid status code.")
-                return
-            }
-            
-            guard let data = data else{
-                sendError("No data returned.")
-                return
-            }
-            
-            // Parse the result and send it to the completion handler
-            self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForGet)
+            // Process the data
+            self.processDataWithCompletionHandler(data, response: response, error: error, domain: "taskForGetMethod", completionHandlerForProcessData: completionHandlerForGet)
         }
         // Start the request
         task.resume()
@@ -79,31 +57,10 @@ class UdacityClient : NSObject {
         
         request.HTTPBody = bodyString.dataUsingEncoding(NSUTF8StringEncoding)
         
+        // Make the request
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
-            func sendError(error: String){
-                let userInfo = [NSLocalizedDescriptionKey: error]
-                completionHandlerForPost(result: nil, error: NSError(domain: "taskForPostMethod", code: 1, userInfo: userInfo))
-            }
-            
-            // Check for any error conditions from the request
-            
-            guard (error == nil) else {
-                sendError("There was an error with your request: \(error)")
-                return
-            }
-            
-            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
-                sendError("Request returned invalid status code.")
-                return
-            }
-            
-            guard let data = data else{
-                sendError("No data returned.")
-                return
-            }
-            
-            // Parse the result and send it to the completion handler
-            self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForPost)
+            // Process the data
+            self.processDataWithCompletionHandler(data, response: response, error: error, domain: "taskForPostMethod", completionHandlerForProcessData: completionHandlerForPost)
         }
         // Start the request
         task.resume()
@@ -129,31 +86,10 @@ class UdacityClient : NSObject {
             request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
         }
         
+        // Make the request
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
-            func sendError(error: String){
-                let userInfo = [NSLocalizedDescriptionKey: error]
-                completionHandlerForDelete(result: nil, error: NSError(domain: "taskForDeleteMethod", code: 1, userInfo: userInfo))
-            }
-            
-            // Check for any error conditions from the request
-            
-            guard (error == nil) else {
-                sendError("There was an error with your request: \(error)")
-                return
-            }
-            
-            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
-                sendError("Request returned invalid status code.")
-                return
-            }
-            
-            guard let data = data else{
-                sendError("No data returned.")
-                return
-            }
-            
-            // Parse the result and send it to the completion handler
-            self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForDelete)
+            // Process the data
+            self.processDataWithCompletionHandler(data, response: response, error: error, domain: "taskForDeleteMethod", completionHandlerForProcessData: completionHandlerForDelete)
         }
         task.resume()
         
@@ -175,6 +111,32 @@ class UdacityClient : NSObject {
         }
         
         completionHandlerForConvertData(result: parsedResult, error: nil)
+    }
+    
+    func processDataWithCompletionHandler(data: NSData?, response: NSURLResponse?, error: NSError?, domain: String, completionHandlerForProcessData: (result: AnyObject!, error: NSError?) -> Void) {
+        func sendError(error: String){
+            let userInfo = [NSLocalizedDescriptionKey: error]
+            completionHandlerForProcessData(result: nil, error: NSError(domain: domain, code: 1, userInfo: userInfo))
+        }
+        
+        // Check for any error conditions from the request
+        
+        guard (error == nil) else {
+            sendError("There was an error with your request: \(error)")
+            return
+        }
+        
+        guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+            sendError("Request returned invalid status code.")
+            return
+        }
+        
+        guard let data = data else{
+            sendError("No data returned.")
+            return
+        }
+        
+        convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForProcessData)
     }
     
 }
