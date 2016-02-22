@@ -49,6 +49,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		429918C41C7AC4E20057874B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				42E9369C1C714FC500990340 /* Main.storyboard */,
+				42E9369F1C714FC500990340 /* Assets.xcassets */,
+				42E936A11C714FC500990340 /* LaunchScreen.storyboard */,
+				429918B61C7422DA0057874B /* Roboto-Regular.ttf */,
+				429918B81C7422FA0057874B /* Roboto-Medium.ttf */,
+				429918BA1C7423310057874B /* Roboto-Thin.ttf */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		429918C51C7AC4F50057874B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42E9369A1C714FC500990340 /* LoginViewController.swift */,
+				429918BC1C756CA90057874B /* MapViewController.swift */,
+				429918BE1C756D660057874B /* LocationTableViewController.swift */,
+				429918C01C756E1D0057874B /* InformationPostingViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		429918C61C7AC50D0057874B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				42E936A41C714FC500990340 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		429918C71C7AC52D0057874B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				429918C91C7AC5A70057874B /* Clients */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		429918C81C7AC5360057874B /* Udacity */ = {
+			isa = PBXGroup;
+			children = (
+				429918C21C7A70440057874B /* UdacityClient.swift */,
+			);
+			name = Udacity;
+			sourceTree = "<group>";
+		};
+		429918C91C7AC5A70057874B /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				429918C81C7AC5360057874B /* Udacity */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
 		42E9368C1C714FC500990340 = {
 			isa = PBXGroup;
 			children = (
@@ -69,18 +125,10 @@
 			isa = PBXGroup;
 			children = (
 				42E936981C714FC500990340 /* AppDelegate.swift */,
-				42E9369A1C714FC500990340 /* LoginViewController.swift */,
-				429918C21C7A70440057874B /* UdacityClient.swift */,
-				429918BC1C756CA90057874B /* MapViewController.swift */,
-				429918BE1C756D660057874B /* LocationTableViewController.swift */,
-				429918C01C756E1D0057874B /* InformationPostingViewController.swift */,
-				42E9369C1C714FC500990340 /* Main.storyboard */,
-				42E9369F1C714FC500990340 /* Assets.xcassets */,
-				42E936A11C714FC500990340 /* LaunchScreen.storyboard */,
-				429918B61C7422DA0057874B /* Roboto-Regular.ttf */,
-				429918B81C7422FA0057874B /* Roboto-Medium.ttf */,
-				429918BA1C7423310057874B /* Roboto-Thin.ttf */,
-				42E936A41C714FC500990340 /* Info.plist */,
+				429918C71C7AC52D0057874B /* Model */,
+				429918C51C7AC4F50057874B /* Controller */,
+				429918C41C7AC4E20057874B /* Assets */,
+				429918C61C7AC50D0057874B /* Supporting Files */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
