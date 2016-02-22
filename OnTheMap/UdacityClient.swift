@@ -158,4 +158,13 @@ class UdacityClient : NSObject {
         return components.URL!
     }
     
+    // MARK: Shared Instance
+    
+    func sharedInstance() -> UdacityClient {
+        struct Singleton {
+            static var sharedInstance = UdacityClient()
+        }
+        return Singleton.sharedInstance
+    }
+    
 }
