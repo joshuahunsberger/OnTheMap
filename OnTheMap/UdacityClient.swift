@@ -163,11 +163,14 @@ class UdacityClient : NSObject {
     // MARK: Helpers
     
     func convertDataWithCompletionHandler(data: NSData, completionHandlerForConvertData: (result: AnyObject!, error: NSError?) -> Void) {
+        // Skip the first 5 characters of Udacity API responses, which are used for security purposes
+        let dataSubset = data.subdataWithRange(NSMakeRange(5, data.length - 5))
+        
         var parsedResult: AnyObject!
         do{
-            parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+            parsedResult = try NSJSONSerialization.JSONObjectWithData(dataSubset, options: .AllowFragments)
         } catch {
-            let userInfo = [NSLocalizedDescriptionKey: "Could not parse data as JSON: \(data)"]
+            let userInfo = [NSLocalizedDescriptionKey: "Could not parse data as JSON: \(dataSubset)"]
             completionHandlerForConvertData(result: nil, error: NSError(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
         }
         
