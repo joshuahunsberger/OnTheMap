@@ -15,6 +15,8 @@ class UdacityClient : NSObject {
     // shared session
     var session = NSURLSession.sharedSession()
     
+    // Udacity sessionID
+    var sessionID: String!
     
     override init() {
         super.init()
