@@ -14,9 +14,8 @@ extension UdacityClient {
     // TODO: Implement method to POST username and password to create session
     func postLogin(username: String, password: String, completionHandlerForSession: (success: Bool, error: NSError?) -> Void) {
         
-        var jsonBody = [String: AnyObject]()
-        jsonBody["\(UdacityClient.JSONBodyKeys.dictionaryName)"] = "{\"username\": \"\(username)\", \"password\": \"\(password)\"}"
-        
+        let jsonBody =  "{\"udacity\" : {\"username\": \"\(username)\", \"password\": \"\(password)\"}}"
+
         taskForPostMethod(UdacityClient.Methods.session, parameters: nil, jsonBody: jsonBody) { (results, error) in
             
             if let error = error {
