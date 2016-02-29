@@ -15,7 +15,7 @@ extension UdacityClient {
         
         // MARK: URL Components
         static let ApiScheme = "https"
-        static let ApiHost = "udacity.com"
+        static let ApiHost = "www.udacity.com"
         static let ApiPath = "/api"
     }
     
