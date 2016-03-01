@@ -93,7 +93,7 @@
         <!--Navigation Controller-->
         <scene sceneID="S94-3n-eHF">
             <objects>
-                <navigationController id="ZID-cT-col" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TabBarNavigationController" id="ZID-cT-col" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tJd-Lf-kjn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -241,6 +241,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="Map" id="2fq-yr-gqS"/>
+                    <connections>
+                        <outlet property="mapView" destination="haO-rK-Pdx" id="7dG-7g-cZc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Egm-ev-cTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
