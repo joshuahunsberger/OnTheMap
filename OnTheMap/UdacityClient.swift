@@ -22,6 +22,8 @@ class UdacityClient : NSObject {
     // Udacity user full name
     var userFullName: String!
     
+    // MARK: Initializer
+    
     override init() {
         super.init()
     }
