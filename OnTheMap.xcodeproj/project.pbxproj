@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42384E4E1C86632B00CFE742 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42384E4D1C86632B00CFE742 /* ParseClient.swift */; };
 		429918B71C7422DA0057874B /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 429918B61C7422DA0057874B /* Roboto-Regular.ttf */; };
 		429918B91C7422FA0057874B /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 429918B81C7422FA0057874B /* Roboto-Medium.ttf */; };
 		429918BB1C7423310057874B /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 429918BA1C7423310057874B /* Roboto-Thin.ttf */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42384E4D1C86632B00CFE742 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		429918B61C7422DA0057874B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		429918B81C7422FA0057874B /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		429918BA1C7423310057874B /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42384E4C1C86631400CFE742 /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				42384E4D1C86632B00CFE742 /* ParseClient.swift */,
+			);
+			name = Parse;
+			sourceTree = "<group>";
+		};
 		429918C41C7AC4E20057874B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +116,7 @@
 		429918C91C7AC5A70057874B /* Clients */ = {
 			isa = PBXGroup;
 			children = (
+				42384E4C1C86631400CFE742 /* Parse */,
 				429918C81C7AC5360057874B /* Udacity */,
 			);
 			name = Clients;
@@ -213,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42384E4E1C86632B00CFE742 /* ParseClient.swift in Sources */,
 				429918BF1C756D660057874B /* LocationTableViewController.swift in Sources */,
 				429918CB1C7AC7740057874B /* UdacityConstants.swift in Sources */,
 				429918C11C756E1D0057874B /* InformationPostingViewController.swift in Sources */,
