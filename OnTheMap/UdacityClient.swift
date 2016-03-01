@@ -116,7 +116,7 @@ class UdacityClient : NSObject {
         // Check for any error conditions from the request
         
         guard (error == nil) else {
-            sendError("There was an error with your request: \(error)")
+            sendError(error!.localizedDescription)
             return
         }
         
