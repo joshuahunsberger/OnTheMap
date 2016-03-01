@@ -17,6 +17,8 @@ class UdacityClient : NSObject {
     
     // Udacity sessionID
     var sessionID: String!
+    // Udacity userID
+    var userID: String!
     
     override init() {
         super.init()
