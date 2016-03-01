@@ -23,23 +23,38 @@ class LoginViewController: UIViewController {
         let password = passwordTextField.text!
         
         if(email == "" || password == "") {
-            // Alert user to enter username and password
-            let alert = UIAlertController(title: "Error", message: "Enter a username and password.", preferredStyle: .Alert)
-            let dismissAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                self.dismissViewControllerAnimated(false, completion: nil)
-            }
-            alert.addAction(dismissAction)
-            self.presentViewController(alert, animated: false, completion: nil)
-        } else{
+            alert("Error", message: "Enter a user name and password.")
+        } else {
             UdacityClient.sharedInstance().postLogin(email, password: password) { (success, error) in
                 if(success) {
-                    print("Login successful")
+
+                    let navController = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarNavigationController") as! UINavigationController
+                    dispatch_async(dispatch_get_main_queue()){
+                        self.presentViewController(navController, animated: true, completion: nil)
+                    }
                 } else {
-                    print("Error with login: \(error!)")
+                    var errorString: String!
+                    
+                    if let error = error {
+                        errorString = error.localizedDescription
+                    } else {
+                        errorString = "Please try again"
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.alert("Error", message: errorString)
+                    }
                 }
             }
         }
     }
     
-    
+    func alert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let dismissAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            self.dismissViewControllerAnimated(false, completion: nil)
+        }
+        alert.addAction(dismissAction)
+        self.presentViewController(alert, animated: false, completion: nil)
+    }
 }
