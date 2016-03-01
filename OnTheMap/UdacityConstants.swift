@@ -22,7 +22,7 @@ extension UdacityClient {
     // MARK: Methods
     struct Methods {
         static let session = "/session"
-        static let users = "/users/"
+        static let users = "/users/{key}"
     }
     
     struct JSONBodyKeys {
