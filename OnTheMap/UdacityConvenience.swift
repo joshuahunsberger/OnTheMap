@@ -48,18 +48,44 @@ extension UdacityClient {
         }
     }
     
-    func deleteSession(completionHandlerForDelete: (success: Bool, error: NSError?) -> Void){
+    func deleteSession(completionHandlerForDeleteSession: (success: Bool, error: NSError?) -> Void) {
         let method = UdacityClient.Methods.session
         
         taskForDeleteMethod(method) { (results, error) in
             if let error = error {
-                completionHandlerForDelete(success: false, error: error)
+                completionHandlerForDeleteSession(success: false, error: error)
             } else {
                 print(results)
-                completionHandlerForDelete(success: true, error: nil)
+                completionHandlerForDeleteSession(success: true, error: nil)
             }
         }
     }
     
     // TODO: Implement method to GET public user data
+    func getName(completionHandlerForGetUserData: (success: Bool, error: NSError?) -> Void) {
+        let method = UdacityClient.Methods.users.stringByReplacingOccurrencesOfString("{key}", withString: userID)
+        taskForGetMethod(method, parameters: nil) { (results, error) in
+            if let error = error {
+                completionHandlerForGetUserData(success: false, error: error)
+            } else {
+                guard let user = results[UdacityClient.JSONResponseKeys.user] as? [String: AnyObject] else {
+                    completionHandlerForGetUserData(success: false, error: NSError(domain: "getName parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse user dictionary"]))
+                    return
+                }
+                
+                guard let firstname = user[UdacityClient.JSONResponseKeys.userFirstName] as? String else {
+                    completionHandlerForGetUserData(success: false, error: NSError(domain: "getName parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse first name."]))
+                    return
+                }
+                
+                guard let lastName = user[UdacityClient.JSONResponseKeys.userLastName] as? String else {
+                    completionHandlerForGetUserData(success: false, error: NSError(domain: "getName parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse last naem."]))
+                    return
+                }
+                
+                self.userFullName = "\(firstname) \(lastName)"
+                completionHandlerForGetUserData(success: true, error: nil)
+            }
+        }
+    }
 }
