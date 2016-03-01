@@ -20,8 +20,19 @@ extension UdacityClient {
             if let error = error {
                 completionHandlerForSession(success: false, error: error)
             } else {
+                // Get userID and sessionID
+                guard let account = results[UdacityClient.JSONResponseKeys.account] as? [String: AnyObject] else {
+                    completionHandlerForSession(success: false, error: NSError(domain: "postSession parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse postLogin account dictionary"]))
+                    return
+                }
+                
+                guard let userID = account[UdacityClient.JSONResponseKeys.accountKey] as? String else {
+                    completionHandlerForSession(success: false, error: NSError(domain: "postSession parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse userID"]))
+                    return
+                }
+                
                 guard let session = results[UdacityClient.JSONResponseKeys.session] as? [String: AnyObject] else {
-                    completionHandlerForSession(success: false, error: NSError(domain: "postSession parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse postLogin dictionary"]))
+                    completionHandlerForSession(success: false, error: NSError(domain: "postSession parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse postLogin session dictionary"]))
                     return
                 }
                 
@@ -29,13 +40,14 @@ extension UdacityClient {
                     completionHandlerForSession(success: false, error: NSError(domain: "postSession parsing sessionID", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse sessionID"]))
                     return
                 }
+                
+                self.userID = userID
                 self.sessionID = sessionID
                 completionHandlerForSession(success: true, error: nil)
             }
         }
     }
     
-    // TODO: Implement method to DELETE the current session
     func deleteSession(completionHandlerForDelete: (success: Bool, error: NSError?) -> Void){
         let method = UdacityClient.Methods.session
         
