@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,14 @@ class LoginViewController: UIViewController {
         if(email == "" || password == "") {
             alert("Error", message: "Enter a user name and password.")
         } else {
+            loginButton.enabled = false
+            
+            let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
+            activityIndicator.activityIndicatorViewStyle = .Gray
+            view.addSubview(activityIndicator)
+            activityIndicator.center = view.center
+            activityIndicator.startAnimating()
+            
             UdacityClient.sharedInstance().postLogin(email, password: password) { (success, error) in
                 if(success) {
 
@@ -43,6 +52,9 @@ class LoginViewController: UIViewController {
                     
                     dispatch_async(dispatch_get_main_queue()) {
                         self.alert("Error", message: errorString)
+                        activityIndicator.stopAnimating()
+                        activityIndicator.removeFromSuperview()
+                        self.loginButton.enabled = true
                     }
                 }
             }
@@ -57,4 +69,5 @@ class LoginViewController: UIViewController {
         alert.addAction(dismissAction)
         self.presentViewController(alert, animated: false, completion: nil)
     }
+    
 }

@@ -83,6 +83,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="NoR-9H-0Kd" id="yN4-C8-LN9"/>
+                        <outlet property="loginButton" destination="CAg-7u-9rH" id="PZE-iY-eTE"/>
                         <outlet property="passwordTextField" destination="7Op-qt-Wkc" id="dyL-Zl-EI5"/>
                     </connections>
                 </viewController>
