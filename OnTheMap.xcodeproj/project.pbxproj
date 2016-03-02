@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		42384E4E1C86632B00CFE742 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42384E4D1C86632B00CFE742 /* ParseClient.swift */; };
+		42384E501C86663A00CFE742 /* ParseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42384E4F1C86663A00CFE742 /* ParseConstants.swift */; };
 		429918B71C7422DA0057874B /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 429918B61C7422DA0057874B /* Roboto-Regular.ttf */; };
 		429918B91C7422FA0057874B /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 429918B81C7422FA0057874B /* Roboto-Medium.ttf */; };
 		429918BB1C7423310057874B /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 429918BA1C7423310057874B /* Roboto-Thin.ttf */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		42384E4D1C86632B00CFE742 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
+		42384E4F1C86663A00CFE742 /* ParseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseConstants.swift; sourceTree = "<group>"; };
 		429918B61C7422DA0057874B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		429918B81C7422FA0057874B /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		429918BA1C7423310057874B /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				42384E4D1C86632B00CFE742 /* ParseClient.swift */,
+				42384E4F1C86663A00CFE742 /* ParseConstants.swift */,
 			);
 			name = Parse;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				42384E4E1C86632B00CFE742 /* ParseClient.swift in Sources */,
 				429918BF1C756D660057874B /* LocationTableViewController.swift in Sources */,
 				429918CB1C7AC7740057874B /* UdacityConstants.swift in Sources */,
+				42384E501C86663A00CFE742 /* ParseConstants.swift in Sources */,
 				429918C11C756E1D0057874B /* InformationPostingViewController.swift in Sources */,
 				429918CD1C7AD2EE0057874B /* UdacityConvenience.swift in Sources */,
 				429918C31C7A70440057874B /* UdacityClient.swift in Sources */,
