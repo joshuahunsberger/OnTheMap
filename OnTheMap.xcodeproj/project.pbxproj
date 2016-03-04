@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4200A8741C8927D600159717 /* ParseConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4200A8731C8927D600159717 /* ParseConvenience.swift */; };
+		4200A8771C892BF200159717 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4200A8761C892BF200159717 /* StudentLocation.swift */; };
 		42384E4E1C86632B00CFE742 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42384E4D1C86632B00CFE742 /* ParseClient.swift */; };
 		42384E501C86663A00CFE742 /* ParseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42384E4F1C86663A00CFE742 /* ParseConstants.swift */; };
 		429918B71C7422DA0057874B /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 429918B61C7422DA0057874B /* Roboto-Regular.ttf */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		4200A8731C8927D600159717 /* ParseConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseConvenience.swift; sourceTree = "<group>"; };
+		4200A8761C892BF200159717 /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		42384E4D1C86632B00CFE742 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		42384E4F1C86663A00CFE742 /* ParseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseConstants.swift; sourceTree = "<group>"; };
 		429918B61C7422DA0057874B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				429918C91C7AC5A70057874B /* Clients */,
+				4200A8761C892BF200159717 /* StudentLocation.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4200A8771C892BF200159717 /* StudentLocation.swift in Sources */,
 				4200A8741C8927D600159717 /* ParseConvenience.swift in Sources */,
 				42384E4E1C86632B00CFE742 /* ParseClient.swift in Sources */,
 				429918BF1C756D660057874B /* LocationTableViewController.swift in Sources */,
