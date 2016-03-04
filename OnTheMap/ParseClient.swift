@@ -24,6 +24,8 @@ class ParseClient: NSObject {
         
         // Build the URL and configure the request
         let request = NSMutableURLRequest(URL: parseURLFromParameters(method, parameters: parameters))
+        request.addValue(ParseClient.Constants.applicationID, forHTTPHeaderField: ParseClient.HTTPHeaders.appIDHeader)
+        request.addValue(ParseClient.Constants.RestApiKey, forHTTPHeaderField: ParseClient.HTTPHeaders.restAPIHeader)
         
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
             
