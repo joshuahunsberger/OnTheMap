@@ -32,6 +32,13 @@ extension ParseClient {
         static let studentLocations = "StudentLocation"
     }
     
+    // MARK: HTTP Headers
+    
+    struct HTTPHeaders {
+        static let appIDHeader = "X-Parse-Application-Id"
+        static let restAPIHeader = "X-Parse-REST-API-Key"
+    }
+    
     // MARK: Parameters
     
     /*
