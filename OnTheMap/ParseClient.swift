@@ -20,6 +20,19 @@ class ParseClient: NSObject {
     
     // MARK: GET
     
+    func taskForGetMethod(method: String, parameters: [String: AnyObject]?, completionHandlerForgGet: (result: AnyObject, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        
+        // Build the URL and configure the request
+        let request = NSMutableURLRequest(URL: parseURLFromParameters(method, parameters: parameters))
+        
+        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+            
+        }
+        task.resume()
+        
+        return task
+    }
+    
     // MARK: PUT
     
     // MARK: Helpers
