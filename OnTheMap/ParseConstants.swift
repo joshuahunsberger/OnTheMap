@@ -16,6 +16,9 @@ extension ParseClient {
     
     struct Constants {
         
+        static let applicationID = "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"
+        static let RestApiKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
+        
         // MARK: URL Components
         
         static let ApiScheme = "https"
