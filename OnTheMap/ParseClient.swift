@@ -37,7 +37,22 @@ class ParseClient: NSObject {
     
     // MARK: POST
     
-   
+    func taskForPostMethod(method: String, parameters: [String: AnyObject]?, completionHandlerForPost: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        
+        let request = NSMutableURLRequest(URL: parseURLFromParameters(method, parameters: parameters))
+        request.HTTPMethod = "POST"
+        request.addValue(ParseClient.Constants.applicationID, forHTTPHeaderField: ParseClient.HTTPHeaders.appIDHeader)
+        request.addValue(ParseClient.Constants.RestApiKey, forHTTPHeaderField: ParseClient.HTTPHeaders.restAPIHeader)
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = session.dataTaskWithRequest(request){ (data, response, error) in
+            self.processDataWithCompletionHandler(data, response: response, error: error, domain: "taskForPostMethod", completionHandlerForProcessData: completionHandlerForPost)
+        }
+        task.resume()
+        
+        return task
+    }
     
     // MARK: Helpers
     
