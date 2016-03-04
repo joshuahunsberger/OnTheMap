@@ -20,7 +20,7 @@ class ParseClient: NSObject {
     
     // MARK: GET
     
-    func taskForGetMethod(method: String, parameters: [String: AnyObject]?, completionHandlerForgGet: (result: AnyObject, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForGetMethod(method: String, parameters: [String: AnyObject]?, completionHandlerForgGet: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
         // Build the URL and configure the request
         let request = NSMutableURLRequest(URL: parseURLFromParameters(method, parameters: parameters))
@@ -28,14 +28,16 @@ class ParseClient: NSObject {
         request.addValue(ParseClient.Constants.RestApiKey, forHTTPHeaderField: ParseClient.HTTPHeaders.restAPIHeader)
         
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
-            
+            self.processDataWithCompletionHandler(data, response: response, error: error, domain: "taskForGetMethod", completionHandlerForProcessData: completionHandlerForgGet)
         }
         task.resume()
         
         return task
     }
     
-    // MARK: PUT
+    // MARK: POST
+    
+   
     
     // MARK: Helpers
     
