@@ -116,4 +116,13 @@ class ParseClient: NSObject {
         
         convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForProcessData)
     }
+    
+    // MARK: Shared Instance
+    
+    class func sharedInstance() -> ParseClient {
+        struct Singleton {
+            static var sharedInstance = ParseClient()
+        }
+        return Singleton.sharedInstance
+    }
 }
