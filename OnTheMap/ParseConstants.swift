@@ -61,18 +61,23 @@ extension ParseClient {
 
     // MARK: JSON Keys
     
-    struct JSONResponseKeys {
+    struct JSONKeys {
         // MARK: Dictionary Names
         
         static let results = "results"
         
         // MARK: Key names
         
+        static let createdAt = "createdAt"
         static let firstName = "firstName"
         static let lastname = "lastName"
         static let latitude = "latitude"
         static let longitude = "longitude"
+        static let mapString = "mapString"
         static let urlString = "mediaURL"
+        static let objectId = "objectId"
+        static let uniqueKey = "uniqueKey"
+        static let updatedAt = "updatedAt"
     }
     
 }
