@@ -25,7 +25,7 @@ struct StudentLocation {
     
     //MARK: Initializers
     
-    init(firstName: String, lastName: String, latitude: Double, longitude: Double, mediaURL: String){
+    init(firstName: String, lastName: String, latitude: Double, longitude: Double, mediaURL: String) {
         self.firstName = firstName
         self.lastName = lastName
         self.latitude = latitude
