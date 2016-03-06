@@ -69,14 +69,28 @@ extension ParseClient {
         }
     }
     
-    //TODO: Create method to send student location with POST
     func postStudentLocation(location: StudentLocation, completionHandlerForPostLocation: (success: Bool, error: NSError?) -> Void) {
         
-        let jsonBody = "{\"\(JSONKeys.uniqueKey)\": \"\(location.uniqueKey)\", \"firstName\": \"\(location.firstName)\", \"lastName\": \"\(location.lastName)\",\"mapString\": \"\(location.mapString!)\", \"mediaURL\": \"\(location.mediaURL)\",\"latitude\": \(location.latitude), \"longitude\": \(location.longitude)}"
-
+        var jsonBody = "{\"\(JSONKeys.uniqueKey)\": \"\(location.uniqueKey)\", "
+        jsonBody += "\"\(JSONKeys.firstName)\": \"\(location.firstName)\", "
+        jsonBody += "\"\(JSONKeys.lastname)\": \"\(location.lastName)\", "
+        jsonBody += "\"\(JSONKeys.mapString)\": \"\(location.mapString!)\", "
+        jsonBody += "\"\(JSONKeys.urlString)\": \"\(location.mediaURL)\", "
+        jsonBody += "\"\(JSONKeys.latitude)\": \(location.latitude), "
+        jsonBody += "\"\(JSONKeys.longitude)\": \(location.longitude)}"
         
         taskForPostMethod(Methods.studentLocations, parameters: nil, jsonBody: jsonBody){ (results, error) in
             
+            if let error = error {
+                completionHandlerForPostLocation(success: false, error: error)
+            } else {
+                guard let _ = results[JSONKeys.objectId] as? String else {
+                    completionHandlerForPostLocation(success: false, error: NSError(domain: "postStudentLocations parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse object ID."]))
+                    return
+                }
+                
+                completionHandlerForPostLocation(success: true, error: nil)
+            }
             
         }
     }
