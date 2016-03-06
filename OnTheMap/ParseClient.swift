@@ -63,7 +63,7 @@ class ParseClient: NSObject {
         let components = NSURLComponents()
         components.scheme = ParseClient.Constants.ApiScheme
         components.host = ParseClient.Constants.ApiHost
-        components.path = ParseClient.Constants.ApiPath
+        components.path = "\(ParseClient.Constants.ApiPath)/\(method)"
         
         // Append parameters, if any
         if let parameters = parameters {
