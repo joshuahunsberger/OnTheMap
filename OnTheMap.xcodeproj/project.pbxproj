@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4200A8741C8927D600159717 /* ParseConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4200A8731C8927D600159717 /* ParseConvenience.swift */; };
 		4200A8771C892BF200159717 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4200A8761C892BF200159717 /* StudentLocation.swift */; };
+		4200A8791C8CF7DA00159717 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4200A8781C8CF7DA00159717 /* TabBarViewController.swift */; };
 		42384E4E1C86632B00CFE742 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42384E4D1C86632B00CFE742 /* ParseClient.swift */; };
 		42384E501C86663A00CFE742 /* ParseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42384E4F1C86663A00CFE742 /* ParseConstants.swift */; };
 		429918B71C7422DA0057874B /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 429918B61C7422DA0057874B /* Roboto-Regular.ttf */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		4200A8731C8927D600159717 /* ParseConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseConvenience.swift; sourceTree = "<group>"; };
 		4200A8761C892BF200159717 /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		4200A8781C8CF7DA00159717 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		42384E4D1C86632B00CFE742 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		42384E4F1C86663A00CFE742 /* ParseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseConstants.swift; sourceTree = "<group>"; };
 		429918B61C7422DA0057874B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				429918BC1C756CA90057874B /* MapViewController.swift */,
 				429918BE1C756D660057874B /* LocationTableViewController.swift */,
 				429918C01C756E1D0057874B /* InformationPostingViewController.swift */,
+				4200A8781C8CF7DA00159717 /* TabBarViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				429918CD1C7AD2EE0057874B /* UdacityConvenience.swift in Sources */,
 				429918C31C7A70440057874B /* UdacityClient.swift in Sources */,
 				42E9369B1C714FC500990340 /* LoginViewController.swift in Sources */,
+				4200A8791C8CF7DA00159717 /* TabBarViewController.swift in Sources */,
 				429918BD1C756CA90057874B /* MapViewController.swift in Sources */,
 				42E936991C714FC500990340 /* AppDelegate.swift in Sources */,
 			);

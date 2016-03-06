@@ -110,7 +110,7 @@
         <!--On The Map-->
         <scene sceneID="uf9-mq-2tA">
             <objects>
-                <tabBarController id="pSV-36-VWH" sceneMemberID="viewController">
+                <tabBarController id="pSV-36-VWH" customClass="TabBarViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="On The Map" id="gE2-xR-JpQ">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="MfJ-Ub-cIj"/>
                         <rightBarButtonItems>
@@ -124,6 +124,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <outlet property="addLocationButton" destination="Aia-IH-xAO" id="IIY-dT-Xvp"/>
+                        <outlet property="logoutButton" destination="MfJ-Ub-cIj" id="mrK-wz-vc8"/>
+                        <outlet property="refreshButton" destination="rm8-6g-m2j" id="LSp-C7-Mjl"/>
                         <segue destination="1jm-ws-bYW" kind="relationship" relationship="viewControllers" id="KUF-r2-lyQ"/>
                         <segue destination="Hke-Y6-Ugo" kind="relationship" relationship="viewControllers" id="0JJ-mB-sCW"/>
                     </connections>
