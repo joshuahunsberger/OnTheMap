@@ -52,6 +52,10 @@ extension UdacityClient {
         let method = UdacityClient.Methods.session
         
         taskForDeleteMethod(method) { (results, error) in
+            self.userID = nil
+            self.sessionID = nil
+            self.userFirstName = nil
+            self.userLastName = nil
             if let error = error {
                 completionHandlerForDeleteSession(success: false, error: error)
             } else {
