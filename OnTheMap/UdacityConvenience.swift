@@ -61,8 +61,11 @@ extension UdacityClient {
         }
     }
     
-    // TODO: Implement method to GET public user data
     func getName(completionHandlerForGetUserData: (success: Bool, error: NSError?) -> Void) {
+        guard let  userID = userID else {
+            completionHandlerForGetUserData(success: false, error: NSError(domain: "getName", code: 1, userInfo: [NSLocalizedDescriptionKey: "User ID is not set."]))
+            return
+        }
         let method = UdacityClient.Methods.users.stringByReplacingOccurrencesOfString("{key}", withString: userID)
         taskForGetMethod(method, parameters: nil) { (results, error) in
             if let error = error {
@@ -73,7 +76,7 @@ extension UdacityClient {
                     return
                 }
                 
-                guard let firstname = user[UdacityClient.JSONResponseKeys.userFirstName] as? String else {
+                guard let firstName = user[UdacityClient.JSONResponseKeys.userFirstName] as? String else {
                     completionHandlerForGetUserData(success: false, error: NSError(domain: "getName parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse first name."]))
                     return
                 }
@@ -83,7 +86,9 @@ extension UdacityClient {
                     return
                 }
                 
-                self.userFullName = "\(firstname) \(lastName)"
+                self.userFirstName = firstName
+                self.userLastName = lastName
+
                 completionHandlerForGetUserData(success: true, error: nil)
             }
         }
