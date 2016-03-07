@@ -112,7 +112,11 @@
             <objects>
                 <tabBarController id="pSV-36-VWH" customClass="TabBarViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="On The Map" id="gE2-xR-JpQ">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="MfJ-Ub-cIj"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="MfJ-Ub-cIj">
+                            <connections>
+                                <action selector="logoutButtonPressed:" destination="pSV-36-VWH" id="amy-aJ-y0H"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="rm8-6g-m2j"/>
                             <barButtonItem image="Pin" id="Aia-IH-xAO"/>
