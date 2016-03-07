@@ -40,6 +40,9 @@ class LoginViewController: UIViewController {
                     let navController = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarNavigationController") as! UINavigationController
                     dispatch_async(dispatch_get_main_queue()){
                         self.presentViewController(navController, animated: true, completion: nil)
+                        activityIndicator.stopAnimating()
+                        activityIndicator.removeFromSuperview()
+                        self.loginButton.enabled = true
                     }
                 } else {
                     var errorString: String!
