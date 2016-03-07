@@ -16,11 +16,12 @@ class UdacityClient : NSObject {
     var session = NSURLSession.sharedSession()
     
     // Udacity sessionID
-    var sessionID: String!
+    var sessionID: String?
     // Udacity userID
-    var userID: String!
-    // Udacity user full name
-    var userFullName: String!
+    var userID: String?
+    // Udacity user name
+    var userFirstName: String?
+    var userLastName: String?
     
     // MARK: Initializer
     
