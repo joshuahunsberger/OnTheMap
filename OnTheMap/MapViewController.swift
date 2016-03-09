@@ -76,9 +76,10 @@ class MapViewController : UIViewController, MKMapViewDelegate {
                     }
                     return
                 }
-                self.addAnnotations(locations)
+                
                 dispatch_async(dispatch_get_main_queue()){
                     activityIndicator.stopAnimating()
+                    self.addAnnotations(locations)
                 }
             } else {
                 dispatch_async(dispatch_get_main_queue()){
