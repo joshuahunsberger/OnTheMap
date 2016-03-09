@@ -17,7 +17,30 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         
     }
-  
+
+    func addAnnotations(locations: [StudentLocation]){
+        var annotations = [MKPointAnnotation]()
+        
+        for location in locations {
+            let lat = CLLocationDegrees(location.latitude)
+            let long = CLLocationDegrees(location.longitude)
+            
+            let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            
+            let first = location.firstName
+            let last = location.lastName
+            let mediaURL = location.mediaURL
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            annotation.title = "\(first) \(last)"
+            annotation.subtitle = mediaURL
+            
+            annotations.append(annotation)
+        }
+        
+        self.mapView.addAnnotations(annotations)
+    }
     
     func alert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
