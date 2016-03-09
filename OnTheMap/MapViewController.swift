@@ -33,6 +33,26 @@ class MapViewController : UIViewController, MKMapViewDelegate {
             refreshStudentLocationData()
         }
     }
+    
+    //MARK: - MKMapViewDelegate
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let reuseId = "pin"
+        
+        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
+        
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.pinTintColor = MKPinAnnotationView.redPinColor()
+            pinView!.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+        } else {
+            pinView!.annotation = annotation
+        }
+        
+        return pinView
+    }
 
     //MARK:  - Helper functions
     
