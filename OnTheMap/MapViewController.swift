@@ -17,6 +17,18 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        refreshStudentLocationData()
+        
+        if let locations = ParseClient.sharedInstance().studentLocations {
+            addAnnotations(locations)
+        } else {
+            refreshStudentLocationData()
+        }
+    }
 
     func addAnnotations(locations: [StudentLocation]){
         var annotations = [MKPointAnnotation]()
