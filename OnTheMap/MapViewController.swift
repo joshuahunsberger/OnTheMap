@@ -19,7 +19,7 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        mapView.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -34,7 +34,7 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         }
     }
 
-    //MARK: Helper functions
+    //MARK:  - Helper functions
     
     func addAnnotations(locations: [StudentLocation]){
         var annotations = [MKPointAnnotation]()
