@@ -59,7 +59,6 @@ extension UdacityClient {
             if let error = error {
                 completionHandlerForDeleteSession(success: false, error: error)
             } else {
-                print(results)
                 completionHandlerForDeleteSession(success: true, error: nil)
             }
         }
