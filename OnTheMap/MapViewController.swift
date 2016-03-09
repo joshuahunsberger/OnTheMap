@@ -42,6 +42,35 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         self.mapView.addAnnotations(annotations)
     }
     
+    func refreshStudentLocationData() {
+        let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
+        activityIndicator.activityIndicatorViewStyle = .Gray
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
+        
+        ParseClient.sharedInstance().getStudentLocations(100, skip: 0, order: "-updatedAt"){ (success, error) in
+            if(success){
+                guard let locations = ParseClient.sharedInstance().studentLocations else {
+                    dispatch_async(dispatch_get_main_queue()){
+                        activityIndicator.stopAnimating()
+                        self.alert("Error", message: "Can't access locations")
+                    }
+                    return
+                }
+                self.addAnnotations(locations)
+                dispatch_async(dispatch_get_main_queue()){
+                    activityIndicator.stopAnimating()
+                }
+            } else {
+                dispatch_async(dispatch_get_main_queue()){
+                    activityIndicator.stopAnimating()
+                    self.alert("Error", message: error!.localizedDescription)
+                }
+            }
+        }
+    }
+    
     func alert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         let dismissAction = UIAlertAction(title: "OK", style: .Default) { (action) in
