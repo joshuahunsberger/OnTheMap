@@ -11,7 +11,11 @@ import MapKit
 
 class MapViewController : UIViewController, MKMapViewDelegate {
     
+    //MARK: Properties
+    
     @IBOutlet weak var mapView: MKMapView!
+    
+    //MARK: View lifecycle functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +34,8 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         }
     }
 
+    //MARK: Helper functions
+    
     func addAnnotations(locations: [StudentLocation]){
         var annotations = [MKPointAnnotation]()
         
@@ -82,6 +88,8 @@ class MapViewController : UIViewController, MKMapViewDelegate {
             }
         }
     }
+    
+    //MARK: Alert
     
     func alert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
