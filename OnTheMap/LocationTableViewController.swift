@@ -35,4 +35,21 @@ class LocationTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let app = UIApplication.sharedApplication()
+        
+        if let location = ParseClient.sharedInstance().studentLocations {
+            let link = location[indexPath.row].mediaURL
+            if let url = NSURL(string: link) {
+                app.openURL(url)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Invalid URL", preferredStyle: .Alert)
+                let dismissAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+                alert.addAction(dismissAction)
+                presentViewController(alert, animated: false, completion: nil)
+
+            }
+        }
+    }
+    
 }
