@@ -9,10 +9,20 @@
 import UIKit
 
 class LocationTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    //MARK: Table view functions
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let locations = ParseClient.sharedInstance().studentLocations {
+            return locations.count
+        } else {
+            return 0
+        }
     }
     
 }
