@@ -25,4 +25,14 @@ class LocationTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("studentLocationCell")! as UITableViewCell
+        let location = ParseClient.sharedInstance().studentLocations![indexPath.row]
+        
+        cell.textLabel!.text = "\(location.firstName) \(location.lastName)"
+        cell.detailTextLabel!.text = location.mediaURL
+        
+        return cell
+    }
+    
 }
