@@ -179,7 +179,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="3aR-uh-GG5" detailTextLabel="qo0-lS-ffE" imageView="4qu-Ly-xu9" style="IBUITableViewCellStyleSubtitle" id="sK8-9g-4NI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="studentLocationCell" textLabel="3aR-uh-GG5" detailTextLabel="qo0-lS-ffE" imageView="4qu-Ly-xu9" style="IBUITableViewCellStyleSubtitle" id="sK8-9g-4NI">
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sK8-9g-4NI" id="27Y-sL-FkB">
