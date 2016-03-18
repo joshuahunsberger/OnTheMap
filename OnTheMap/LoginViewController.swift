@@ -37,8 +37,8 @@ class LoginViewController: UIViewController {
             UdacityClient.sharedInstance().postLogin(email, password: password) { (success, error) in
                 if(success) {
 
-                    let navController = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarNavigationController") as! UINavigationController
                     dispatch_async(dispatch_get_main_queue()){
+                        let navController = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarNavigationController") as! UINavigationController
                         self.presentViewController(navController, animated: true, completion: nil)
                         activityIndicator.stopAnimating()
                         activityIndicator.removeFromSuperview()
