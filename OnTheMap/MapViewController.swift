@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapViewController : UIViewController, MKMapViewDelegate {
+class MapViewController : StudentLocationViewController, MKMapViewDelegate {
     
     //MARK: Properties
     
@@ -25,12 +25,10 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        refreshStudentLocationData()
-        
         if let locations = ParseClient.sharedInstance().studentLocations {
             addAnnotations(locations)
         } else {
-            refreshStudentLocationData()
+            refresh()
         }
     }
     
@@ -72,7 +70,7 @@ class MapViewController : UIViewController, MKMapViewDelegate {
 
     //MARK:  - Helper functions
     
-    func addAnnotations(locations: [StudentLocation]){
+    func addAnnotations(locations: [StudentLocation]) {
         var annotations = [MKPointAnnotation]()
         
         for location in locations {
@@ -96,34 +94,20 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         self.mapView.addAnnotations(annotations)
     }
     
-    func refreshStudentLocationData() {
-        let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
-        activityIndicator.activityIndicatorViewStyle = .Gray
-        view.addSubview(activityIndicator)
-        activityIndicator.center = view.center
-        activityIndicator.startAnimating()
+    //MARK: Refresh
+    
+    override func refresh() {
+        let locations = getStudentLocations()
         
-        ParseClient.sharedInstance().getStudentLocations(100, skip: 0, order: "-updatedAt"){ (success, error) in
-            if(success){
-                guard let locations = ParseClient.sharedInstance().studentLocations else {
-                    dispatch_async(dispatch_get_main_queue()){
-                        activityIndicator.stopAnimating()
-                        self.alert("Error", message: "Can't access locations")
-                    }
-                    return
-                }
-                
-                dispatch_async(dispatch_get_main_queue()){
-                    activityIndicator.stopAnimating()
-                    self.addAnnotations(locations)
-                }
-            } else {
-                dispatch_async(dispatch_get_main_queue()){
-                    activityIndicator.stopAnimating()
-                    self.alert("Error", message: error!.localizedDescription)
-                }
-            }
+        // Only update annotations if able to retrieve new list
+        if (!locations.isEmpty) {
+            // Clear any existing annotations
+            mapView.removeAnnotations(mapView.annotations)
+            
+            // Add newly retrieved annotations
+            addAnnotations(locations)
         }
+        
     }
     
     //MARK: Alert
