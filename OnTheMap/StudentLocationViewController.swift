@@ -10,4 +10,7 @@ import UIKit
 
 class StudentLocationViewController: UIViewController {
     
+    func refresh() {
+        // Implement in subclass
+    }
 }
