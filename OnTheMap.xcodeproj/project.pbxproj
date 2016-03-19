@@ -12,6 +12,7 @@
 		4200A8791C8CF7DA00159717 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4200A8781C8CF7DA00159717 /* TabBarViewController.swift */; };
 		42384E4E1C86632B00CFE742 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42384E4D1C86632B00CFE742 /* ParseClient.swift */; };
 		42384E501C86663A00CFE742 /* ParseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42384E4F1C86663A00CFE742 /* ParseConstants.swift */; };
+		4267E7131C9E0FEA0032DB44 /* StudentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4267E7121C9E0FEA0032DB44 /* StudentLocationViewController.swift */; };
 		429918B71C7422DA0057874B /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 429918B61C7422DA0057874B /* Roboto-Regular.ttf */; };
 		429918B91C7422FA0057874B /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 429918B81C7422FA0057874B /* Roboto-Medium.ttf */; };
 		429918BB1C7423310057874B /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 429918BA1C7423310057874B /* Roboto-Thin.ttf */; };
@@ -34,6 +35,7 @@
 		4200A8781C8CF7DA00159717 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		42384E4D1C86632B00CFE742 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		42384E4F1C86663A00CFE742 /* ParseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseConstants.swift; sourceTree = "<group>"; };
+		4267E7121C9E0FEA0032DB44 /* StudentLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationViewController.swift; sourceTree = "<group>"; };
 		429918B61C7422DA0057874B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		429918B81C7422FA0057874B /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		429918BA1C7423310057874B /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				429918BE1C756D660057874B /* LocationTableViewController.swift */,
 				429918C01C756E1D0057874B /* InformationPostingViewController.swift */,
 				4200A8781C8CF7DA00159717 /* TabBarViewController.swift */,
+				4267E7121C9E0FEA0032DB44 /* StudentLocationViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				4200A8771C892BF200159717 /* StudentLocation.swift in Sources */,
 				4200A8741C8927D600159717 /* ParseConvenience.swift in Sources */,
 				42384E4E1C86632B00CFE742 /* ParseClient.swift in Sources */,
+				4267E7131C9E0FEA0032DB44 /* StudentLocationViewController.swift in Sources */,
 				429918BF1C756D660057874B /* LocationTableViewController.swift in Sources */,
 				429918CB1C7AC7740057874B /* UdacityConstants.swift in Sources */,
 				42384E501C86663A00CFE742 /* ParseConstants.swift in Sources */,
