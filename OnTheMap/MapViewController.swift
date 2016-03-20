@@ -100,11 +100,14 @@ class MapViewController : StudentLocationViewController, MKMapViewDelegate {
         getStudentLocations() { studentLocations in
             // Only update annotations if able to retrieve new list
             if let locations = studentLocations {
-                // Clear any existing annotations
-                self.mapView.removeAnnotations(self.mapView.annotations)
-                
-                // Add newly retrieved annotations
-                self.addAnnotations(locations)
+                // Perform updates on main thread
+                dispatch_async(dispatch_get_main_queue()){
+                    // Clear any existing annotations
+                    self.mapView.removeAnnotations(self.mapView.annotations)
+                    
+                    // Add newly retrieved annotations
+                    self.addAnnotations(locations)
+                }
             }
         }
     }
