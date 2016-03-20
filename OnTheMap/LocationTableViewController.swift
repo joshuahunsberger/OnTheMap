@@ -56,4 +56,10 @@ class LocationTableViewController: StudentLocationViewController, UITableViewDel
         }
     }
     
+    //MARK: Refresh
+    override func refresh() {
+        getStudentLocations() { _ in
+            self.tableView.reloadData()
+        }
+    }
 }
