@@ -118,7 +118,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="refresh" id="rm8-6g-m2j"/>
+                            <barButtonItem systemItem="refresh" id="rm8-6g-m2j">
+                                <connections>
+                                    <action selector="refreshButtonPressed:" destination="pSV-36-VWH" id="j6j-pT-jan"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="Pin" id="Aia-IH-xAO"/>
                         </rightBarButtonItems>
                     </navigationItem>

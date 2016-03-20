@@ -25,4 +25,15 @@ class TabBarViewController: UITabBarController {
             }
         }
     }
+    
+    @IBAction func refreshButtonPressed(sender: UIBarButtonItem) {
+        // Get current view controller
+        guard let vc = selectedViewController as? StudentLocationViewController else {
+            //Error
+            print("Error accessing selected view controller.")
+            return
+        }
+        // Refresh view controller
+        vc.refresh()
+    }
 }
