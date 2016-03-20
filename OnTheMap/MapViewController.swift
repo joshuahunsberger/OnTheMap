@@ -97,17 +97,16 @@ class MapViewController : StudentLocationViewController, MKMapViewDelegate {
     //MARK: Refresh
     
     override func refresh() {
-        let locations = getStudentLocations()
-        
-        // Only update annotations if able to retrieve new list
-        if (!locations.isEmpty) {
-            // Clear any existing annotations
-            mapView.removeAnnotations(mapView.annotations)
-            
-            // Add newly retrieved annotations
-            addAnnotations(locations)
+        getStudentLocations() { studentLocations in
+            // Only update annotations if able to retrieve new list
+            if let locations = studentLocations {
+                // Clear any existing annotations
+                self.mapView.removeAnnotations(self.mapView.annotations)
+                
+                // Add newly retrieved annotations
+                self.addAnnotations(locations)
+            }
         }
-        
     }
     
     //MARK: Alert
