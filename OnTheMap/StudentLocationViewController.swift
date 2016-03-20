@@ -10,8 +10,8 @@ import UIKit
 
 class StudentLocationViewController: UIViewController {
     
-    func getStudentLocations() -> [StudentLocation]{
-        var studentLocations = [StudentLocation]()
+    func getStudentLocations(completionHandlerForLocations: ([StudentLocation]?) -> Void ) {
+        //let studentLocations = [StudentLocation]()
         
         // Display activity view indicator
         let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
@@ -26,6 +26,7 @@ class StudentLocationViewController: UIViewController {
                 guard let locations = ParseClient.sharedInstance().studentLocations else {
                     dispatch_async(dispatch_get_main_queue()){
                         activityIndicator.stopAnimating()
+                        completionHandlerForLocations(nil)
                         //TODO: Display error
                     }
                     return
@@ -35,15 +36,15 @@ class StudentLocationViewController: UIViewController {
                     activityIndicator.stopAnimating()
                 }
                 
-                studentLocations = locations
+                completionHandlerForLocations(locations)
             } else {
                 dispatch_async(dispatch_get_main_queue()){
                     activityIndicator.stopAnimating()
-                    //TODO: Display errorß
+                    completionHandlerForLocations(nil)
+                    //TODO: Display error
                 }
             }
         }
-        return studentLocations
     }
     
     func refresh() {
