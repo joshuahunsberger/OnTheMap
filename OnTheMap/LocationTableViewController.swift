@@ -59,7 +59,10 @@ class LocationTableViewController: StudentLocationViewController, UITableViewDel
     //MARK: Refresh
     override func refresh() {
         getStudentLocations() { _ in
-            self.tableView.reloadData()
+            // Perform UI updates on main thread
+            dispatch_async(dispatch_get_main_queue()){
+                self.tableView.reloadData()
+            }
         }
     }
 }
