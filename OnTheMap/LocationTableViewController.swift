@@ -8,16 +8,21 @@
 
 import UIKit
 
-class LocationTableViewController: UITableViewController {
+class LocationTableViewController: StudentLocationViewController, UITableViewDelegate, UITableViewDataSource {
     
+    //MARK: Interface Builder Outlets
+    @IBOutlet weak var tableView: UITableView!
+    
+    //MARK: View lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     //MARK: Table view functions
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let locations = ParseClient.sharedInstance().studentLocations {
             return locations.count
         } else {
@@ -25,7 +30,7 @@ class LocationTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("studentLocationCell")! as UITableViewCell
         let location = ParseClient.sharedInstance().studentLocations![indexPath.row]
         
@@ -35,7 +40,7 @@ class LocationTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let app = UIApplication.sharedApplication()
         
         if let location = ParseClient.sharedInstance().studentLocations {
@@ -47,7 +52,6 @@ class LocationTableViewController: UITableViewController {
                 let dismissAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
                 alert.addAction(dismissAction)
                 presentViewController(alert, animated: false, completion: nil)
-
             }
         }
     }

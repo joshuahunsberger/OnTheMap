@@ -110,7 +110,7 @@
         <!--On The Map-->
         <scene sceneID="uf9-mq-2tA">
             <objects>
-                <tabBarController id="pSV-36-VWH" customClass="TabBarViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="pSV-36-VWH" customClass="TabBarViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="On The Map" id="gE2-xR-JpQ">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="MfJ-Ub-cIj">
                             <connections>
@@ -166,7 +166,7 @@
         <!--List-->
         <scene sceneID="B90-N2-Rhy">
             <objects>
-                <viewController id="Fj7-RO-AiQ" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Fj7-RO-AiQ" customClass="LocationTableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K9p-Zi-8zu"/>
                         <viewControllerLayoutGuide type="bottom" id="4q7-9h-QjI"/>
@@ -180,7 +180,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="studentLocationCell" textLabel="Ea3-0N-cth" detailTextLabel="5Th-xs-XOu" imageView="8UV-da-63E" style="IBUITableViewCellStyleSubtitle" id="yBN-mb-zQH">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yBN-mb-zQH" id="abL-aw-leH">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -219,6 +219,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="1" title="List" image="List" selectedImage="List" id="rbP-M4-Xvm"/>
+                    <connections>
+                        <outlet property="tableView" destination="Uq2-O6-Sb7" id="50e-En-Jpt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eKq-43-Kue" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
