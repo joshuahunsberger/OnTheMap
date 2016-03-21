@@ -10,9 +10,7 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
-    @IBOutlet weak var logoutButton: UIBarButtonItem!
-    @IBOutlet weak var addLocationButton: UIBarButtonItem!
-    @IBOutlet weak var refreshButton: UIBarButtonItem!
+    //MARK: Interface Builder Actions
     
     @IBAction func logoutButtonPressed(sender: UIBarButtonItem) {
         UdacityClient.sharedInstance().deleteSession() { (success, error) in
