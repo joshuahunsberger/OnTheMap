@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -155,12 +155,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMH-Yq-5um">
-                                <rect key="frame" x="525" y="28" width="55" height="30"/>
-                                <state key="normal" title="Cancel"/>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSA-jq-sBF" userLabel="TopView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I51-Pg-dga" userLabel="MiddleView">
+                                <rect key="frame" x="0.0" y="200" width="600" height="400"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fxq-fa-jdA" userLabel="BottomView">
+                                        <rect key="frame" x="-3" y="275" width="606" height="125"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="kyt-qH-el9"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="I51-Pg-dga" secondAttribute="trailing" id="831-aD-kFe"/>
+                            <constraint firstItem="kaV-UJ-nps" firstAttribute="top" secondItem="I51-Pg-dga" secondAttribute="bottom" id="DeN-aE-1Zz"/>
+                            <constraint firstItem="I51-Pg-dga" firstAttribute="top" secondItem="vSA-jq-sBF" secondAttribute="bottom" id="LlT-yp-8nl"/>
+                            <constraint firstAttribute="trailing" secondItem="vSA-jq-sBF" secondAttribute="trailing" id="ooT-wW-QWZ"/>
+                            <constraint firstItem="I51-Pg-dga" firstAttribute="leading" secondItem="Hrf-Se-Si4" secondAttribute="leading" id="qaD-2k-cNz"/>
+                            <constraint firstItem="vSA-jq-sBF" firstAttribute="leading" secondItem="Hrf-Se-Si4" secondAttribute="leading" id="wP4-7V-TNe"/>
+                            <constraint firstItem="vSA-jq-sBF" firstAttribute="top" secondItem="Hrf-Se-Si4" secondAttribute="top" id="yqE-DN-oGP"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Utm-lF-xEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
