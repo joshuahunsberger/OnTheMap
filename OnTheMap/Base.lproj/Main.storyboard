@@ -157,20 +157,34 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSA-jq-sBF" userLabel="TopView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="KGa-AI-LuD"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I51-Pg-dga" userLabel="MiddleView">
                                 <rect key="frame" x="0.0" y="200" width="600" height="400"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fxq-fa-jdA" userLabel="BottomView">
-                                        <rect key="frame" x="-3" y="275" width="606" height="125"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxq-fa-jdA" userLabel="BottomView">
+                                        <rect key="frame" x="0.0" y="275" width="600" height="125"/>
+                                        <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="125" id="aMZ-fJ-Eg9"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.23921568627450981" green="0.46274509803921571" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="fxq-fa-jdA" firstAttribute="leading" secondItem="I51-Pg-dga" secondAttribute="leading" id="YjC-2x-oLy"/>
                                     <constraint firstAttribute="height" constant="400" id="kyt-qH-el9"/>
+                                    <constraint firstAttribute="trailing" secondItem="fxq-fa-jdA" secondAttribute="trailing" id="nKC-5n-15S"/>
+                                    <constraint firstAttribute="bottom" secondItem="fxq-fa-jdA" secondAttribute="bottom" id="zpo-qa-WCN"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="kyt-qH-el9"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
