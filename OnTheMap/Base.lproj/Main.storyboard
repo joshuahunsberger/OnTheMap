@@ -15,7 +15,6 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
-            <string>Roboto-Regular</string>
         </mutableArray>
         <mutableArray key="Roboto-Thin.ttf">
             <string>Roboto-Thin</string>
@@ -232,15 +231,6 @@
                                             <constraint firstAttribute="height" constant="125" id="aMZ-fJ-Eg9"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgI-a4-2rc">
-                                        <rect key="frame" x="261" y="20" width="79" height="21"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dFA-oP-70V">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
-                                    </mapView>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biq-bY-m0i">
                                         <rect key="frame" x="263" y="323" width="75" height="30"/>
                                         <constraints>
@@ -261,25 +251,25 @@
                                             <color key="titleColor" red="0.23921568630000001" green="0.46274509800000002" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRX-dy-rta">
+                                        <rect key="frame" x="100" y="8" width="400" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.23921568627450981" green="0.46274509803921571" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="PkA-lF-DaT" firstAttribute="top" secondItem="ZgI-a4-2rc" secondAttribute="bottom" constant="282" id="3aH-ib-f84"/>
                                     <constraint firstItem="PkA-lF-DaT" firstAttribute="centerX" secondItem="I51-Pg-dga" secondAttribute="centerX" id="3mo-o8-K1S"/>
-                                    <constraint firstAttribute="trailing" secondItem="dFA-oP-70V" secondAttribute="trailing" id="4aI-5l-rsm"/>
-                                    <constraint firstItem="ZgI-a4-2rc" firstAttribute="centerX" secondItem="I51-Pg-dga" secondAttribute="centerX" id="Hzp-y4-Qna"/>
-                                    <constraint firstItem="ZgI-a4-2rc" firstAttribute="top" secondItem="I51-Pg-dga" secondAttribute="top" constant="20" id="IhJ-Fv-YdM"/>
+                                    <constraint firstAttribute="trailing" secondItem="gRX-dy-rta" secondAttribute="trailing" constant="100" id="J2Z-fb-cb0"/>
                                     <constraint firstAttribute="bottom" secondItem="biq-bY-m0i" secondAttribute="bottom" constant="47" id="RPV-xq-a9m"/>
-                                    <constraint firstAttribute="bottom" secondItem="dFA-oP-70V" secondAttribute="bottom" id="RXh-cZ-1FZ"/>
                                     <constraint firstItem="biq-bY-m0i" firstAttribute="centerX" secondItem="I51-Pg-dga" secondAttribute="centerX" id="Xtg-4b-OKz"/>
                                     <constraint firstItem="fxq-fa-jdA" firstAttribute="leading" secondItem="I51-Pg-dga" secondAttribute="leading" id="YjC-2x-oLy"/>
-                                    <constraint firstItem="fxq-fa-jdA" firstAttribute="top" secondItem="ZgI-a4-2rc" secondAttribute="bottom" constant="234" id="eEz-7i-MyX"/>
-                                    <constraint firstItem="biq-bY-m0i" firstAttribute="top" secondItem="ZgI-a4-2rc" secondAttribute="bottom" constant="282" id="eYd-4Z-YA9"/>
-                                    <constraint firstItem="dFA-oP-70V" firstAttribute="top" secondItem="I51-Pg-dga" secondAttribute="top" id="fgf-SG-6U6"/>
+                                    <constraint firstItem="gRX-dy-rta" firstAttribute="top" secondItem="I51-Pg-dga" secondAttribute="top" constant="8" id="gCN-EL-myN"/>
+                                    <constraint firstItem="fxq-fa-jdA" firstAttribute="top" secondItem="gRX-dy-rta" secondAttribute="bottom" constant="237" id="gvO-F7-Hfv"/>
                                     <constraint firstAttribute="bottom" secondItem="PkA-lF-DaT" secondAttribute="bottom" constant="47" id="jML-a6-aFZ"/>
                                     <constraint firstAttribute="height" constant="400" id="kyt-qH-el9"/>
+                                    <constraint firstItem="gRX-dy-rta" firstAttribute="leading" secondItem="I51-Pg-dga" secondAttribute="leading" constant="100" id="l7f-dI-usf"/>
                                     <constraint firstAttribute="trailing" secondItem="fxq-fa-jdA" secondAttribute="trailing" id="nKC-5n-15S"/>
-                                    <constraint firstItem="dFA-oP-70V" firstAttribute="leading" secondItem="I51-Pg-dga" secondAttribute="leading" id="qcL-Py-YBO"/>
                                     <constraint firstAttribute="bottom" secondItem="fxq-fa-jdA" secondAttribute="bottom" id="zpo-qa-WCN"/>
                                 </constraints>
                                 <variation key="default">
@@ -300,6 +290,16 @@
                             <constraint firstItem="vSA-jq-sBF" firstAttribute="top" secondItem="Hrf-Se-Si4" secondAttribute="top" id="yqE-DN-oGP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="iHk-L8-EHu" id="7vs-HW-n1z"/>
+                        <outlet property="findButton" destination="PkA-lF-DaT" id="7wu-1l-bE3"/>
+                        <outlet property="linkTextField" destination="WI1-Up-Agk" id="BBt-D1-Qek"/>
+                        <outlet property="locationTextField" destination="gRX-dy-rta" id="rUH-O7-RpM"/>
+                        <outlet property="studyingLabel" destination="sbf-Ak-yD2" id="yYa-n8-Esc"/>
+                        <outlet property="submitButton" destination="biq-bY-m0i" id="eVT-pv-vhA"/>
+                        <outlet property="todayLabel" destination="fC9-Di-Lp7" id="wcu-Uj-1Ao"/>
+                        <outlet property="whereLabel" destination="lln-Kc-XNw" id="5rJ-xR-iAD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Utm-lF-xEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
