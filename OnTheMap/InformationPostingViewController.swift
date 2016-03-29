@@ -12,6 +12,16 @@ import CoreLocation
 
 class InformationPostingViewController: UIViewController {
     
+    // Enumeration to indicate which state the view should be in
+    enum ViewState {
+        case locationEntry
+        case linkEntry
+    }
+    
+    //MARK: Properties
+    
+    var state: ViewState!
+    
     //MARK: Interface Builder Outlets
     
     @IBOutlet weak var cancelButton: UIButton!
@@ -27,6 +37,7 @@ class InformationPostingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        state = ViewState.locationEntry
     }
     
     func toggleUIState() {
