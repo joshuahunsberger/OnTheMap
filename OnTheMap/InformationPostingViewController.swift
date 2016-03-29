@@ -28,4 +28,16 @@ class InformationPostingViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    func toggleUIState(){
+        whereLabel.hidden = !whereLabel.hidden
+        studyingLabel.hidden = !studyingLabel.hidden
+        todayLabel.hidden = !todayLabel.hidden
+        locationTextField.hidden = !locationTextField.hidden
+        findButton.hidden = !findButton.hidden
+        
+        linkTextField.hidden = !linkTextField.hidden
+        locationMapView.hidden = !locationMapView.hidden
+        submitButton.hidden = !submitButton.hidden
+    }
+    
 }
