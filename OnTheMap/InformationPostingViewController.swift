@@ -64,6 +64,7 @@ class InformationPostingViewController: UIViewController {
                         
                         self.toggleUIState()
                         self.locationMapView.addAnnotation(MKPlacemark(placemark: placemark))
+                        self.locationMapView.showAnnotations(self.locationMapView.annotations, animated: true)
                         
                     }
                 }
