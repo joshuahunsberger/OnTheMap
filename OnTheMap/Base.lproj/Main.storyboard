@@ -320,6 +320,7 @@
                         <outlet property="studyingLabel" destination="sbf-Ak-yD2" id="yYa-n8-Esc"/>
                         <outlet property="submitButton" destination="biq-bY-m0i" id="eVT-pv-vhA"/>
                         <outlet property="todayLabel" destination="fC9-Di-Lp7" id="wcu-Uj-1Ao"/>
+                        <outlet property="topView" destination="vSA-jq-sBF" id="Rdn-su-ZXQ"/>
                         <outlet property="whereLabel" destination="lln-Kc-XNw" id="5rJ-xR-iAD"/>
                     </connections>
                 </viewController>

@@ -33,6 +33,7 @@ class InformationPostingViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var findButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var topView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,17 @@ class InformationPostingViewController: UIViewController {
     }
     
     func toggleUIState() {
+        // Switch state and view colors
+        if(state == ViewState.locationEntry) {
+            state = ViewState.linkEntry
+            topView.backgroundColor = UIColor(red: 61/255, green: 118/255, blue: 167/255, alpha: 1)
+        } else {
+            state = ViewState.locationEntry
+            topView.backgroundColor = UIColor(red: 217/255, green: 217/255, blue: 213/255, alpha: 1)
+        }
+        
+        // Toggle hidden state of elements
+        
         whereLabel.hidden = !whereLabel.hidden
         studyingLabel.hidden = !studyingLabel.hidden
         todayLabel.hidden = !todayLabel.hidden
