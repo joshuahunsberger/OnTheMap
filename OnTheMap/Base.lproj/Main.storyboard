@@ -15,6 +15,7 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
         </mutableArray>
         <mutableArray key="Roboto-Thin.ttf">
             <string>Roboto-Thin</string>
@@ -232,8 +233,14 @@
                                         <rect key="frame" x="0.0" y="275" width="600" height="125"/>
                                         <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="125" id="PEo-ao-z1h"/>
                                             <constraint firstAttribute="height" constant="125" id="aMZ-fJ-Eg9"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="PEo-ao-z1h"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biq-bY-m0i">
                                         <rect key="frame" x="263" y="323" width="75" height="30"/>
@@ -258,16 +265,20 @@
                                             <action selector="findButtonPressed:" destination="y6A-WU-1dS" eventType="touchUpInside" id="ibl-8i-WfS"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRX-dy-rta">
-                                        <rect key="frame" x="100" y="8" width="400" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter your location here." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRX-dy-rta">
+                                        <rect key="frame" x="8" y="8" width="584" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Qo0-DP-rjd"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.23921568627450981" green="0.46274509803921571" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="PkA-lF-DaT" firstAttribute="centerX" secondItem="I51-Pg-dga" secondAttribute="centerX" id="3mo-o8-K1S"/>
-                                    <constraint firstAttribute="trailing" secondItem="gRX-dy-rta" secondAttribute="trailing" constant="100" id="J2Z-fb-cb0"/>
+                                    <constraint firstAttribute="trailing" secondItem="gRX-dy-rta" secondAttribute="trailing" constant="8" id="J2Z-fb-cb0"/>
                                     <constraint firstItem="LC5-F1-1Fo" firstAttribute="top" secondItem="I51-Pg-dga" secondAttribute="top" id="Pq3-AB-xSc"/>
                                     <constraint firstAttribute="bottom" secondItem="biq-bY-m0i" secondAttribute="bottom" constant="47" id="RPV-xq-a9m"/>
                                     <constraint firstItem="LC5-F1-1Fo" firstAttribute="leading" secondItem="I51-Pg-dga" secondAttribute="leading" id="T4T-wm-lsp"/>
@@ -275,10 +286,9 @@
                                     <constraint firstItem="fxq-fa-jdA" firstAttribute="leading" secondItem="I51-Pg-dga" secondAttribute="leading" id="YjC-2x-oLy"/>
                                     <constraint firstAttribute="bottom" secondItem="LC5-F1-1Fo" secondAttribute="bottom" id="fov-W7-6fM"/>
                                     <constraint firstItem="gRX-dy-rta" firstAttribute="top" secondItem="I51-Pg-dga" secondAttribute="top" constant="8" id="gCN-EL-myN"/>
-                                    <constraint firstItem="fxq-fa-jdA" firstAttribute="top" secondItem="gRX-dy-rta" secondAttribute="bottom" constant="237" id="gvO-F7-Hfv"/>
                                     <constraint firstAttribute="bottom" secondItem="PkA-lF-DaT" secondAttribute="bottom" constant="47" id="jML-a6-aFZ"/>
                                     <constraint firstAttribute="height" constant="400" id="kyt-qH-el9"/>
-                                    <constraint firstItem="gRX-dy-rta" firstAttribute="leading" secondItem="I51-Pg-dga" secondAttribute="leading" constant="100" id="l7f-dI-usf"/>
+                                    <constraint firstItem="gRX-dy-rta" firstAttribute="leading" secondItem="I51-Pg-dga" secondAttribute="leading" constant="8" id="l7f-dI-usf"/>
                                     <constraint firstAttribute="trailing" secondItem="fxq-fa-jdA" secondAttribute="trailing" id="nKC-5n-15S"/>
                                     <constraint firstAttribute="trailing" secondItem="LC5-F1-1Fo" secondAttribute="trailing" id="vZM-Te-ZPx"/>
                                     <constraint firstAttribute="bottom" secondItem="fxq-fa-jdA" secondAttribute="bottom" id="zpo-qa-WCN"/>
