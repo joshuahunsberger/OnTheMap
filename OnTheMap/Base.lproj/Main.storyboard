@@ -131,7 +131,11 @@
                                     <action selector="refreshButtonPressed:" destination="pSV-36-VWH" id="j6j-pT-jan"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="Pin" id="Aia-IH-xAO"/>
+                            <barButtonItem image="Pin" id="Aia-IH-xAO">
+                                <connections>
+                                    <action selector="newLocationButtonPressed:" destination="pSV-36-VWH" id="Isb-En-ytW"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ZKK-h7-9vV">
@@ -140,9 +144,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <outlet property="addLocationButton" destination="Aia-IH-xAO" id="IIY-dT-Xvp"/>
-                        <outlet property="logoutButton" destination="MfJ-Ub-cIj" id="mrK-wz-vc8"/>
-                        <outlet property="refreshButton" destination="rm8-6g-m2j" id="LSp-C7-Mjl"/>
                         <segue destination="1jm-ws-bYW" kind="relationship" relationship="viewControllers" id="KUF-r2-lyQ"/>
                         <segue destination="Fj7-RO-AiQ" kind="relationship" relationship="viewControllers" id="vhY-0z-94k"/>
                     </connections>
@@ -154,7 +155,7 @@
         <!--Information Posting View-->
         <scene sceneID="vas-7e-1MI">
             <objects>
-                <viewController title="Information Posting View" id="y6A-WU-1dS" customClass="InformationPostingViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InformationPostingView" title="Information Posting View" id="y6A-WU-1dS" customClass="InformationPostingViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nTn-Ir-UCk"/>
                         <viewControllerLayoutGuide type="bottom" id="kaV-UJ-nps"/>
@@ -224,6 +225,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I51-Pg-dga" userLabel="MiddleView">
                                 <rect key="frame" x="0.0" y="200" width="600" height="400"/>
                                 <subviews>
+                                    <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LC5-F1-1Fo">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                                    </mapView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxq-fa-jdA" userLabel="BottomView">
                                         <rect key="frame" x="0.0" y="275" width="600" height="125"/>
                                         <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -264,15 +268,19 @@
                                 <constraints>
                                     <constraint firstItem="PkA-lF-DaT" firstAttribute="centerX" secondItem="I51-Pg-dga" secondAttribute="centerX" id="3mo-o8-K1S"/>
                                     <constraint firstAttribute="trailing" secondItem="gRX-dy-rta" secondAttribute="trailing" constant="100" id="J2Z-fb-cb0"/>
+                                    <constraint firstItem="LC5-F1-1Fo" firstAttribute="top" secondItem="I51-Pg-dga" secondAttribute="top" id="Pq3-AB-xSc"/>
                                     <constraint firstAttribute="bottom" secondItem="biq-bY-m0i" secondAttribute="bottom" constant="47" id="RPV-xq-a9m"/>
+                                    <constraint firstItem="LC5-F1-1Fo" firstAttribute="leading" secondItem="I51-Pg-dga" secondAttribute="leading" id="T4T-wm-lsp"/>
                                     <constraint firstItem="biq-bY-m0i" firstAttribute="centerX" secondItem="I51-Pg-dga" secondAttribute="centerX" id="Xtg-4b-OKz"/>
                                     <constraint firstItem="fxq-fa-jdA" firstAttribute="leading" secondItem="I51-Pg-dga" secondAttribute="leading" id="YjC-2x-oLy"/>
+                                    <constraint firstAttribute="bottom" secondItem="LC5-F1-1Fo" secondAttribute="bottom" id="fov-W7-6fM"/>
                                     <constraint firstItem="gRX-dy-rta" firstAttribute="top" secondItem="I51-Pg-dga" secondAttribute="top" constant="8" id="gCN-EL-myN"/>
                                     <constraint firstItem="fxq-fa-jdA" firstAttribute="top" secondItem="gRX-dy-rta" secondAttribute="bottom" constant="237" id="gvO-F7-Hfv"/>
                                     <constraint firstAttribute="bottom" secondItem="PkA-lF-DaT" secondAttribute="bottom" constant="47" id="jML-a6-aFZ"/>
                                     <constraint firstAttribute="height" constant="400" id="kyt-qH-el9"/>
                                     <constraint firstItem="gRX-dy-rta" firstAttribute="leading" secondItem="I51-Pg-dga" secondAttribute="leading" constant="100" id="l7f-dI-usf"/>
                                     <constraint firstAttribute="trailing" secondItem="fxq-fa-jdA" secondAttribute="trailing" id="nKC-5n-15S"/>
+                                    <constraint firstAttribute="trailing" secondItem="LC5-F1-1Fo" secondAttribute="trailing" id="vZM-Te-ZPx"/>
                                     <constraint firstAttribute="bottom" secondItem="fxq-fa-jdA" secondAttribute="bottom" id="zpo-qa-WCN"/>
                                 </constraints>
                                 <variation key="default">
@@ -297,6 +305,7 @@
                         <outlet property="cancelButton" destination="iHk-L8-EHu" id="7vs-HW-n1z"/>
                         <outlet property="findButton" destination="PkA-lF-DaT" id="7wu-1l-bE3"/>
                         <outlet property="linkTextField" destination="WI1-Up-Agk" id="BBt-D1-Qek"/>
+                        <outlet property="locationMapView" destination="LC5-F1-1Fo" id="Zqj-6S-94k"/>
                         <outlet property="locationTextField" destination="gRX-dy-rta" id="rUH-O7-RpM"/>
                         <outlet property="studyingLabel" destination="sbf-Ak-yD2" id="yYa-n8-Esc"/>
                         <outlet property="submitButton" destination="biq-bY-m0i" id="eVT-pv-vhA"/>
