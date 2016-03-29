@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class InformationPostingViewController: UIViewController {
     
@@ -28,7 +29,7 @@ class InformationPostingViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    func toggleUIState(){
+    func toggleUIState() {
         whereLabel.hidden = !whereLabel.hidden
         studyingLabel.hidden = !studyingLabel.hidden
         todayLabel.hidden = !todayLabel.hidden
@@ -40,4 +41,32 @@ class InformationPostingViewController: UIViewController {
         submitButton.hidden = !submitButton.hidden
     }
     
+    //MARK: Interface Builder Action functions
+    
+    @IBAction func findButtonPressed(sender: AnyObject) {
+        let address = locationTextField.text!
+        
+        if(address.isEmpty) {
+            //TODO: Show an alert to user to enter address string
+            print("No location entered.")
+        } else {
+            let geocoder = CLGeocoder()
+            geocoder.geocodeAddressString(address, completionHandler: { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    guard let placemarks = placemarks else {
+                        print("No placemarks.")
+                        return
+                    }
+                    if(placemarks.count > 0) {
+                        let placemark = placemarks[0]
+                        
+                        self.locationMapView.addAnnotation(MKPlacemark(placemark: placemark))
+                        self.toggleUIState()
+                    }
+                }
+            })
+        }
+    }
 }
