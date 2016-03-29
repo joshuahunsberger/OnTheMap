@@ -34,4 +34,9 @@ class TabBarViewController: UITabBarController {
         // Refresh view controller
         vc.refresh()
     }
+    
+    @IBAction func newLocationButtonPressed(sender: UIBarButtonItem) {
+        let informationPostingView = storyboard!.instantiateViewControllerWithIdentifier("InformationPostingView") as! InformationPostingViewController
+        presentViewController(informationPostingView, animated: true, completion: nil)
+    }
 }
