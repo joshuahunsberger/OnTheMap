@@ -62,8 +62,9 @@ class InformationPostingViewController: UIViewController {
                     if(placemarks.count > 0) {
                         let placemark = placemarks[0]
                         
-                        self.locationMapView.addAnnotation(MKPlacemark(placemark: placemark))
                         self.toggleUIState()
+                        self.locationMapView.addAnnotation(MKPlacemark(placemark: placemark))
+                        
                     }
                 }
             })
