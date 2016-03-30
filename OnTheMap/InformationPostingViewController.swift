@@ -21,6 +21,8 @@ class InformationPostingViewController: UIViewController {
     //MARK: Properties
     
     var state: ViewState!
+    let blueColor = UIColor(red: 61/255, green: 118/255, blue: 167/255, alpha: 1)
+    let grayColor = UIColor(red: 217/255, green: 217/255, blue: 213/255, alpha: 1)
     
     //MARK: Interface Builder Outlets
     
@@ -46,12 +48,14 @@ class InformationPostingViewController: UIViewController {
         // Switch state and view colors
         if(state == ViewState.locationEntry) {
             state = ViewState.linkEntry
-            topView.backgroundColor = UIColor(red: 61/255, green: 118/255, blue: 167/255, alpha: 1)
+            topView.backgroundColor = blueColor
             bottomView.alpha = 0.25
+            cancelButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         } else {
             state = ViewState.locationEntry
-            topView.backgroundColor = UIColor(red: 217/255, green: 217/255, blue: 213/255, alpha: 1)
+            topView.backgroundColor = grayColor
             bottomView.alpha = 1
+            cancelButton.setTitleColor(blueColor, forState: UIControlState.Normal)
         }
         
         // Toggle hidden state of elements
