@@ -23,6 +23,8 @@ class InformationPostingViewController: UIViewController {
     var state: ViewState!
     let blueColor = UIColor(red: 61/255, green: 118/255, blue: 167/255, alpha: 1)
     let grayColor = UIColor(red: 217/255, green: 217/255, blue: 213/255, alpha: 1)
+    var latitude: Double!
+    var longitude: Double!
     
     //MARK: Interface Builder Outlets
     
@@ -91,7 +93,8 @@ class InformationPostingViewController: UIViewController {
                     }
                     if(placemarks.count > 0) {
                         let placemark = placemarks[0]
-                        
+                        self.latitude = placemark.location?.coordinate.latitude
+                        self.longitude = placemark.location?.coordinate.longitude
                         self.toggleUIState()
                         self.locationMapView.addAnnotation(MKPlacemark(placemark: placemark))
                         self.locationMapView.showAnnotations(self.locationMapView.annotations, animated: true)
