@@ -258,6 +258,9 @@
                                         <state key="normal" title="Submit">
                                             <color key="titleColor" red="0.23921568630000001" green="0.46274509800000002" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="submitButtonPressed:" destination="y6A-WU-1dS" eventType="touchUpInside" id="Wcd-2Z-KJU"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkA-lF-DaT">
                                         <rect key="frame" x="233" y="323" width="135" height="30"/>

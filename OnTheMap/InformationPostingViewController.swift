@@ -108,4 +108,61 @@ class InformationPostingViewController: UIViewController {
     @IBAction func cancelButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    @IBAction func submitButtonPressed(sender: AnyObject) {
+        submitButton.enabled = false
+        cancelButton.enabled = false
+        
+        let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
+        activityIndicator.activityIndicatorViewStyle = .Gray
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
+        
+        let linkText = linkTextField.text!
+        
+        if(linkText == "") {
+            //TODO: Alert user to enter a link
+            print("Enter a link")
+            return
+        }
+        
+        guard let _ = NSURL(string: linkText) else {
+            //TODO: Alert user to enter a valid link
+            print("Can't convert to URL")
+            return
+        }
+        
+        let location = StudentLocation(firstName: UdacityClient.sharedInstance().userFirstName!, lastName: UdacityClient.sharedInstance().userLastName!, latitude: latitude!, longitude: longitude!, mediaURL: linkText)
+        
+        ParseClient.sharedInstance().postStudentLocation(location) { (success, error) in
+            if(success) {
+                dispatch_async(dispatch_get_main_queue()) {
+                    activityIndicator.stopAnimating()
+                    activityIndicator.removeFromSuperview()
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
+            } else {
+                var errorString: String!
+                
+                if let error = error {
+                    errorString = error.localizedDescription
+                } else {
+                    errorString = "Please try again"
+                }
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    activityIndicator.stopAnimating()
+                    activityIndicator.removeFromSuperview()
+                    // TODO: Display alert
+                    print("Error posting data: \(errorString)")
+                    
+                    self.submitButton.enabled = true
+                    self.cancelButton.enabled = true
+                }
+            }
+            
+            
+        }
+    }
 }
