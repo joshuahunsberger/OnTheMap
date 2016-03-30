@@ -312,6 +312,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomView" destination="fxq-fa-jdA" id="bq1-aP-fRN"/>
                         <outlet property="cancelButton" destination="iHk-L8-EHu" id="7vs-HW-n1z"/>
                         <outlet property="findButton" destination="PkA-lF-DaT" id="7wu-1l-bE3"/>
                         <outlet property="linkTextField" destination="WI1-Up-Agk" id="BBt-D1-Qek"/>

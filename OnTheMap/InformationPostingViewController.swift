@@ -34,6 +34,7 @@ class InformationPostingViewController: UIViewController {
     @IBOutlet weak var findButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var bottomView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,9 +47,11 @@ class InformationPostingViewController: UIViewController {
         if(state == ViewState.locationEntry) {
             state = ViewState.linkEntry
             topView.backgroundColor = UIColor(red: 61/255, green: 118/255, blue: 167/255, alpha: 1)
+            bottomView.alpha = 0.25
         } else {
             state = ViewState.locationEntry
             topView.backgroundColor = UIColor(red: 217/255, green: 217/255, blue: 213/255, alpha: 1)
+            bottomView.alpha = 1
         }
         
         // Toggle hidden state of elements
