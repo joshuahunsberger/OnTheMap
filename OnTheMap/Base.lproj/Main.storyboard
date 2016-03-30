@@ -209,6 +209,9 @@
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" red="0.23921568630000001" green="0.46274509800000002" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="cancelButtonPressed:" destination="y6A-WU-1dS" eventType="touchUpInside" id="Wmq-Ia-N6X"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>

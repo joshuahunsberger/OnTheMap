@@ -101,4 +101,8 @@ class InformationPostingViewController: UIViewController {
             })
         }
     }
+    
+    @IBAction func cancelButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }
