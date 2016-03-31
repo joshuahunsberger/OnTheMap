@@ -87,17 +87,16 @@ class InformationPostingViewController: UIViewController {
     @IBAction func findButtonPressed(sender: AnyObject) {
         let address = locationTextField.text!
         
-        if(address.isEmpty) {
-            //TODO: Show an alert to user to enter address string
-            print("No location entered.")
+        if(address == "" || address == "Enter your location here.") {
+            alert("Error", message: "Please enter your location.")
         } else {
             let geocoder = CLGeocoder()
             geocoder.geocodeAddressString(address, completionHandler: { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
                 if let error = error {
-                    print(error.localizedDescription)
+                    self.alert("Error",message: "There was and issue finding the location: \(error.localizedDescription)")
                 } else {
                     guard let placemarks = placemarks else {
-                        print("No placemarks.")
+                        self.alert("Error", message: "Unable to find location. Please enter a different location.")
                         return
                     }
                     if(placemarks.count > 0) {
