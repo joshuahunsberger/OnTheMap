@@ -69,6 +69,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Uk4-iI-pmK"/>
                                     <constraint firstAttribute="width" constant="275" id="cMw-LX-DFZ"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
