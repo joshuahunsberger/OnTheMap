@@ -80,6 +80,12 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func signUpButtonPressed(sender: AnyObject) {
+        let url = NSURL(string: "https://www.udacity.com/account/auth#!/signup")!
+        let app = UIApplication.sharedApplication()
+        app.openURL(url)
+    }
+    
     func alert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         let dismissAction = UIAlertAction(title: "OK", style: .Default) { (action) in
