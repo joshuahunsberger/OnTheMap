@@ -59,6 +59,8 @@ class LoginViewController: UIViewController {
                         activityIndicator.stopAnimating()
                         activityIndicator.removeFromSuperview()
                         self.loginButton.enabled = true
+                        self.emailTextField.text = ""
+                        self.passwordTextField.text = ""
                     }
                 } else {
                     var errorString: String!
