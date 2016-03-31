@@ -79,13 +79,6 @@ class InformationPostingViewController: UIViewController {
         submitButton.hidden = !submitButton.hidden
     }
     
-    func alert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        let dismissAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alert.addAction(dismissAction)
-        self.presentViewController(alert, animated: false, completion: nil)
-    }
-    
     func disableUIAndDisplayActivityIndicator() {
         cancelButton.enabled = false
         if(state == ViewState.locationEntry) {
@@ -136,7 +129,7 @@ class InformationPostingViewController: UIViewController {
         
         if(address == "" || address == "Enter your location here.") {
             enableUIAndRemoveActivityIndicator()
-            alert("Error", message: "Please enter your location.")
+            Alert.alert(self, title: "Error", message: "Please enter your location.")
             return
         }
         
@@ -166,11 +159,11 @@ class InformationPostingViewController: UIViewController {
                     errorString = "An unknown error occurred."
                 }
                 
-                self.alert("Error", message: "There was and issue finding the location: \(errorString)")
+                Alert.alert(self, title: "Error", message: errorString)
             } else {
                 guard let placemarks = placemarks else {
                     self.enableUIAndRemoveActivityIndicator()
-                    self.alert("Error", message: "Unable to find location. Please enter a different location.")
+                    Alert.alert(self, title: "Error", message: "Unable to find location. Please enter a different location.")
                     return
                 }
                 if(placemarks.count > 0) {
@@ -178,7 +171,7 @@ class InformationPostingViewController: UIViewController {
                     
                     guard let location = placemark.location else {
                         self.enableUIAndRemoveActivityIndicator()
-                        self.alert("Error", message: "Unable to access location. Please try again.")
+                        Alert.alert(self, title: "Error", message: "Unable to access location. Please try again.")
                         return
                     }
                     
@@ -192,7 +185,7 @@ class InformationPostingViewController: UIViewController {
                     self.locationMapView.showAnnotations(self.locationMapView.annotations, animated: true)
                 } else {
                     self.enableUIAndRemoveActivityIndicator()
-                    self.alert("Error", message: "No locations found.")
+                    Alert.alert(self, title: "Error", message: "No locations found.")
                 }
             }
         }
@@ -209,13 +202,13 @@ class InformationPostingViewController: UIViewController {
         
         if(linkText == "" || linkText == "Share a link here.") {
             enableUIAndRemoveActivityIndicator()
-            alert("Error", message: "PLease enter a link before submitting.")
+            Alert.alert(self, title: "Error", message: "PLease enter a link before submitting.")
             return
         }
         
         guard let _ = NSURL(string: linkText) else {
             enableUIAndRemoveActivityIndicator()
-            alert("Error", message: "Cannot convert link to URL. Please submit a valid URL.")
+            Alert.alert(self, title: "Error", message: "Cannot convert link to URL. Please submit a valid URL.")
             return
         }
         
@@ -238,7 +231,7 @@ class InformationPostingViewController: UIViewController {
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     self.enableUIAndRemoveActivityIndicator()
-                    self.alert("Error", message: errorString)
+                    Alert.alert(self, title: "Error", message: errorString)
                 }
             }
         }
