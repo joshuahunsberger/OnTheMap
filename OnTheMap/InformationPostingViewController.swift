@@ -130,15 +130,21 @@ class InformationPostingViewController: UIViewController {
         
         let linkText = linkTextField.text!
         
-        if(linkText == "") {
-            //TODO: Alert user to enter a link
-            print("Enter a link")
+        if(linkText == "" || linkText == "Share a link here.") {
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
+            alert("Error", message: "PLease enter a link before submitting.")
+            self.submitButton.enabled = true
+            self.cancelButton.enabled = true
             return
         }
         
         guard let _ = NSURL(string: linkText) else {
-            //TODO: Alert user to enter a valid link
-            print("Can't convert to URL")
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
+            alert("Error", message: "Cannot convert link to URL. Please submit a valid URL.")
+            self.submitButton.enabled = true
+            self.cancelButton.enabled = true
             return
         }
         
@@ -163,9 +169,7 @@ class InformationPostingViewController: UIViewController {
                 dispatch_async(dispatch_get_main_queue()) {
                     activityIndicator.stopAnimating()
                     activityIndicator.removeFromSuperview()
-                    // TODO: Display alert
-                    print("Error posting data: \(errorString)")
-                    
+                    self.alert("Error", message: errorString)
                     self.submitButton.enabled = true
                     self.cancelButton.enabled = true
                 }
