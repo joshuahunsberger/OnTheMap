@@ -57,7 +57,11 @@ class MapViewController : StudentLocationViewController, MKMapViewDelegate {
             let app = UIApplication.sharedApplication()
             if let link = view.annotation?.subtitle! {
                 if let url = NSURL(string: link){
-                    app.openURL(url)
+                    if(app.canOpenURL(url)) {
+                        app.openURL(url)
+                    } else {
+                        Alert.alert(self, title: "Error", message: "Invalid URL")
+                    }
                 } else {
                     Alert.alert(self, title: "Error", message: "Invalid URL")
                 }
