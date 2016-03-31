@@ -25,6 +25,7 @@ class InformationPostingViewController: UIViewController {
     let grayColor = UIColor(red: 217/255, green: 217/255, blue: 213/255, alpha: 1)
     var latitude: Double!
     var longitude: Double!
+    let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
     
     //MARK: Interface Builder Outlets
     
@@ -90,7 +91,6 @@ class InformationPostingViewController: UIViewController {
             submitButton.enabled = false
         }
         
-        let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
         activityIndicator.activityIndicatorViewStyle = .Gray
         view.addSubview(activityIndicator)
         activityIndicator.center = view.center
