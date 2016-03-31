@@ -135,10 +135,19 @@ class InformationPostingViewController: UIViewController {
                 }
                 if(placemarks.count > 0) {
                     let placemark = placemarks[0]
-                    self.latitude = placemark.location?.coordinate.latitude
-                    self.longitude = placemark.location?.coordinate.longitude
+                    
+                    guard let location = placemark.location else {
+                        self.enableUIAndRemoveActivityIndicator()
+                        self.alert("Error", message: "Unable to access location. Please try again.")
+                        return
+                    }
+                    
+                    self.latitude = location.coordinate.latitude
+                    self.longitude = location.coordinate.longitude
+                    
                     self.enableUIAndRemoveActivityIndicator()
                     self.toggleUIState()
+                    
                     self.locationMapView.addAnnotation(MKPlacemark(placemark: placemark))
                     self.locationMapView.showAnnotations(self.locationMapView.annotations, animated: true)
                 }
