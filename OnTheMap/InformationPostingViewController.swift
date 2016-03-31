@@ -46,6 +46,8 @@ class InformationPostingViewController: UIViewController {
         state = ViewState.locationEntry
     }
     
+    //MARK: Helper functions
+    
     func toggleUIState() {
         // Switch state and view colors
         if(state == ViewState.locationEntry) {
@@ -71,6 +73,15 @@ class InformationPostingViewController: UIViewController {
         linkTextField.hidden = !linkTextField.hidden
         locationMapView.hidden = !locationMapView.hidden
         submitButton.hidden = !submitButton.hidden
+    }
+    
+    func alert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let dismissAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            self.dismissViewControllerAnimated(false, completion: nil)
+        }
+        alert.addAction(dismissAction)
+        self.presentViewController(alert, animated: false, completion: nil)
     }
     
     //MARK: Interface Builder Action functions
@@ -161,8 +172,8 @@ class InformationPostingViewController: UIViewController {
                     self.cancelButton.enabled = true
                 }
             }
-            
-            
         }
     }
+    
+    
 }
