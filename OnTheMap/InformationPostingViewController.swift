@@ -172,6 +172,9 @@ class InformationPostingViewController: UIViewController {
                     
                     self.locationMapView.addAnnotation(MKPlacemark(placemark: placemark))
                     self.locationMapView.showAnnotations(self.locationMapView.annotations, animated: true)
+                } else {
+                    self.enableUIAndRemoveActivityIndicator()
+                    self.alert("Error", message: "No locations found.")
                 }
             }
         }
