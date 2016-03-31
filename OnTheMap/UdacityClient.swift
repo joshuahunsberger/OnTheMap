@@ -127,8 +127,17 @@ class UdacityClient : NSObject {
             return
         }
         
-        guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
-            sendError("Request returned invalid status code.")
+        guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode else {
+            sendError("Unable to retrieve status code.")
+            return
+        }
+        
+        if(statusCode < 200 || statusCode > 299) {
+            if(statusCode == 403) {
+                sendError("Invalid username or password.")
+            } else {
+                sendError("Request returned invalid status code.")
+            }
             return
         }
         
