@@ -112,17 +112,22 @@ class InformationPostingViewController: UIViewController {
     //MARK: Interface Builder Action functions
     
     @IBAction func findButtonPressed(sender: AnyObject) {
+        disableUIAndDisplayActivityIndicator()
+        
         let address = locationTextField.text!
         
         if(address == "" || address == "Enter your location here.") {
+            enableUIAndRemoveActivityIndicator()
             alert("Error", message: "Please enter your location.")
         } else {
             let geocoder = CLGeocoder()
             geocoder.geocodeAddressString(address, completionHandler: { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
                 if let error = error {
-                    self.alert("Error",message: "There was and issue finding the location: \(error.localizedDescription)")
+                    self.enableUIAndRemoveActivityIndicator()
+                    self.alert("Error", message: "There was and issue finding the location: \(error.localizedDescription)")
                 } else {
                     guard let placemarks = placemarks else {
+                        self.enableUIAndRemoveActivityIndicator()
                         self.alert("Error", message: "Unable to find location. Please enter a different location.")
                         return
                     }
@@ -130,6 +135,7 @@ class InformationPostingViewController: UIViewController {
                         let placemark = placemarks[0]
                         self.latitude = placemark.location?.coordinate.latitude
                         self.longitude = placemark.location?.coordinate.longitude
+                        self.enableUIAndRemoveActivityIndicator()
                         self.toggleUIState()
                         self.locationMapView.addAnnotation(MKPlacemark(placemark: placemark))
                         self.locationMapView.showAnnotations(self.locationMapView.annotations, animated: true)
