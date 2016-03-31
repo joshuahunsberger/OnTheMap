@@ -46,7 +46,11 @@ class LocationTableViewController: StudentLocationViewController, UITableViewDel
         if let location = ParseClient.sharedInstance().studentLocations {
             let link = location[indexPath.row].mediaURL
             if let url = NSURL(string: link) {
-                app.openURL(url)
+                if(app.canOpenURL(url)){
+                    app.openURL(url)
+                } else {
+                    Alert.alert(self, title: "Error", message: "Invalid URL")
+                }
             } else {
                 Alert.alert(self, title: "Error", message: "Invalid URL")
             }
