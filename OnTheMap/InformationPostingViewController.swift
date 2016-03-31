@@ -26,6 +26,7 @@ class InformationPostingViewController: UIViewController {
     var latitude: Double!
     var longitude: Double!
     let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
+    let textFieldDelegate = OnTheMapTextFieldDelegate()
     
     //MARK: Interface Builder Outlets
     
@@ -43,8 +44,10 @@ class InformationPostingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         state = ViewState.locationEntry
+        locationTextField.delegate = textFieldDelegate
+        linkTextField.delegate = textFieldDelegate
     }
     
     //MARK: Helper functions
