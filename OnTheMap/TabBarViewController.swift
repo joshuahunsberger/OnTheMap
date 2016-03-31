@@ -13,13 +13,11 @@ class TabBarViewController: UITabBarController {
     //MARK: Interface Builder Actions
     
     @IBAction func logoutButtonPressed(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+
         UdacityClient.sharedInstance().deleteSession() { (success, error) in
             if(!success) {
                 print("Error while logging out. \(error!.localizedDescription)")
-            }
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
     }
