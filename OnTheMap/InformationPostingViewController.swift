@@ -119,30 +119,30 @@ class InformationPostingViewController: UIViewController {
         if(address == "" || address == "Enter your location here.") {
             enableUIAndRemoveActivityIndicator()
             alert("Error", message: "Please enter your location.")
-        } else {
-            let geocoder = CLGeocoder()
-            geocoder.geocodeAddressString(address, completionHandler: { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-                if let error = error {
+            return
+        }
+        
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(address) { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+            if let error = error {
+                self.enableUIAndRemoveActivityIndicator()
+                self.alert("Error", message: "There was and issue finding the location: \(error.localizedDescription)")
+            } else {
+                guard let placemarks = placemarks else {
                     self.enableUIAndRemoveActivityIndicator()
-                    self.alert("Error", message: "There was and issue finding the location: \(error.localizedDescription)")
-                } else {
-                    guard let placemarks = placemarks else {
-                        self.enableUIAndRemoveActivityIndicator()
-                        self.alert("Error", message: "Unable to find location. Please enter a different location.")
-                        return
-                    }
-                    if(placemarks.count > 0) {
-                        let placemark = placemarks[0]
-                        self.latitude = placemark.location?.coordinate.latitude
-                        self.longitude = placemark.location?.coordinate.longitude
-                        self.enableUIAndRemoveActivityIndicator()
-                        self.toggleUIState()
-                        self.locationMapView.addAnnotation(MKPlacemark(placemark: placemark))
-                        self.locationMapView.showAnnotations(self.locationMapView.annotations, animated: true)
-                        
-                    }
+                    self.alert("Error", message: "Unable to find location. Please enter a different location.")
+                    return
                 }
-            })
+                if(placemarks.count > 0) {
+                    let placemark = placemarks[0]
+                    self.latitude = placemark.location?.coordinate.latitude
+                    self.longitude = placemark.location?.coordinate.longitude
+                    self.enableUIAndRemoveActivityIndicator()
+                    self.toggleUIState()
+                    self.locationMapView.addAnnotation(MKPlacemark(placemark: placemark))
+                    self.locationMapView.showAnnotations(self.locationMapView.annotations, animated: true)
+                }
+            }
         }
     }
     
