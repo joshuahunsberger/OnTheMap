@@ -59,10 +59,7 @@ class MapViewController : StudentLocationViewController, MKMapViewDelegate {
                 if let url = NSURL(string: link){
                     app.openURL(url)
                 } else {
-                    let alert = UIAlertController(title: "Error", message: "Invalid URL", preferredStyle: .Alert)
-                    let dismissAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
-                    alert.addAction(dismissAction)
-                    presentViewController(alert, animated: false, completion: nil)
+                    Alert.alert(self, title: "Error", message: "Invalid URL")
                 }
             }
         }
@@ -110,16 +107,5 @@ class MapViewController : StudentLocationViewController, MKMapViewDelegate {
                 }
             }
         }
-    }
-    
-    //MARK: Alert
-    
-    func alert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        let dismissAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-            self.dismissViewControllerAnimated(false, completion: nil)
-        }
-        alert.addAction(dismissAction)
-        self.presentViewController(alert, animated: false, completion: nil)
     }
 }
