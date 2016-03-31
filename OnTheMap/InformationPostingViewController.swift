@@ -150,20 +150,14 @@ class InformationPostingViewController: UIViewController {
         let linkText = linkTextField.text!
         
         if(linkText == "" || linkText == "Share a link here.") {
-            activityIndicator.stopAnimating()
-            activityIndicator.removeFromSuperview()
+            enableUIAndRemoveActivityIndicator()
             alert("Error", message: "PLease enter a link before submitting.")
-            self.submitButton.enabled = true
-            self.cancelButton.enabled = true
             return
         }
         
         guard let _ = NSURL(string: linkText) else {
-            activityIndicator.stopAnimating()
-            activityIndicator.removeFromSuperview()
+            enableUIAndRemoveActivityIndicator()
             alert("Error", message: "Cannot convert link to URL. Please submit a valid URL.")
-            self.submitButton.enabled = true
-            self.cancelButton.enabled = true
             return
         }
         
@@ -172,8 +166,7 @@ class InformationPostingViewController: UIViewController {
         ParseClient.sharedInstance().postStudentLocation(location) { (success, error) in
             if(success) {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.activityIndicator.stopAnimating()
-                    self.activityIndicator.removeFromSuperview()
+                    self.enableUIAndRemoveActivityIndicator()
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }
             } else {
@@ -186,11 +179,8 @@ class InformationPostingViewController: UIViewController {
                 }
                 
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.activityIndicator.stopAnimating()
-                    self.activityIndicator.removeFromSuperview()
+                    self.enableUIAndRemoveActivityIndicator()
                     self.alert("Error", message: errorString)
-                    self.submitButton.enabled = true
-                    self.cancelButton.enabled = true
                 }
             }
         }
