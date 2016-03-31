@@ -11,7 +11,6 @@ import UIKit
 class StudentLocationViewController: UIViewController {
     
     func getStudentLocations(completionHandlerForLocations: ([StudentLocation]?) -> Void ) {
-        //let studentLocations = [StudentLocation]()
         
         // Display activity view indicator
         let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
@@ -27,7 +26,7 @@ class StudentLocationViewController: UIViewController {
                     dispatch_async(dispatch_get_main_queue()){
                         activityIndicator.stopAnimating()
                         completionHandlerForLocations(nil)
-                        //TODO: Display error
+                        Alert.alert(self, title: "Error", message: "Unable to retrieve student locations.")
                     }
                     return
                 }
@@ -41,7 +40,11 @@ class StudentLocationViewController: UIViewController {
                 dispatch_async(dispatch_get_main_queue()){
                     activityIndicator.stopAnimating()
                     completionHandlerForLocations(nil)
-                    //TODO: Display error
+                    guard let error = error else {
+                        Alert.alert(self, title: "Error", message: "Unknown error occurred.")
+                        return
+                    }
+                    Alert.alert(self, title: "Error", message: error.localizedDescription)
                 }
             }
         }
