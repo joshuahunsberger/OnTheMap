@@ -82,6 +82,21 @@ class InformationPostingViewController: UIViewController {
         self.presentViewController(alert, animated: false, completion: nil)
     }
     
+    func disableUIAndDisplayActivityIndicator(){
+        cancelButton.enabled = false
+        if(state == ViewState.locationEntry) {
+            findButton.enabled = false
+        } else {
+            submitButton.enabled = false
+        }
+        
+        let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
+        activityIndicator.activityIndicatorViewStyle = .Gray
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
+    }
+    
     //MARK: Interface Builder Action functions
     
     @IBAction func findButtonPressed(sender: AnyObject) {
