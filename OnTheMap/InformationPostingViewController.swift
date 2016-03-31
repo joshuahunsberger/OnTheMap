@@ -126,7 +126,29 @@ class InformationPostingViewController: UIViewController {
         geocoder.geocodeAddressString(address) { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
             if let error = error {
                 self.enableUIAndRemoveActivityIndicator()
-                self.alert("Error", message: "There was and issue finding the location: \(error.localizedDescription)")
+                
+                // CL Error Handling from user Martin R on StackOverflow:
+                // http://stackoverflow.com/questions/24509621/swift-corelocation-handling-nserror-in-didfailwitherror
+                let errorString: String!
+                
+                if let clErr = CLError(rawValue: error.code) {
+                    switch clErr {
+                    case .Network:
+                        errorString = "Network error occurred."
+                    case .GeocodeCanceled:
+                        errorString = "Geocoding request was canceled."
+                    case .GeocodeFoundNoResult:
+                        errorString = "Location was not found."
+                    case .GeocodeFoundPartialResult:
+                        errorString = "Geocoding request only yielded partial result."
+                    default:
+                        errorString = "Unknown location error."
+                    }
+                } else {
+                    errorString = "An unknown error occurred."
+                }
+                
+                self.alert("Error", message: "There was and issue finding the location: \(errorString)")
             } else {
                 guard let placemarks = placemarks else {
                     self.enableUIAndRemoveActivityIndicator()
