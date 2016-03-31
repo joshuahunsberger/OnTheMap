@@ -133,14 +133,7 @@ class InformationPostingViewController: UIViewController {
     }
     
     @IBAction func submitButtonPressed(sender: AnyObject) {
-        submitButton.enabled = false
-        cancelButton.enabled = false
-        
-        let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
-        activityIndicator.activityIndicatorViewStyle = .Gray
-        view.addSubview(activityIndicator)
-        activityIndicator.center = view.center
-        activityIndicator.startAnimating()
+        disableUIAndDisplayActivityIndicator()
         
         let linkText = linkTextField.text!
         
@@ -167,8 +160,8 @@ class InformationPostingViewController: UIViewController {
         ParseClient.sharedInstance().postStudentLocation(location) { (success, error) in
             if(success) {
                 dispatch_async(dispatch_get_main_queue()) {
-                    activityIndicator.stopAnimating()
-                    activityIndicator.removeFromSuperview()
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.removeFromSuperview()
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }
             } else {
@@ -181,8 +174,8 @@ class InformationPostingViewController: UIViewController {
                 }
                 
                 dispatch_async(dispatch_get_main_queue()) {
-                    activityIndicator.stopAnimating()
-                    activityIndicator.removeFromSuperview()
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.removeFromSuperview()
                     self.alert("Error", message: errorString)
                     self.submitButton.enabled = true
                     self.cancelButton.enabled = true
@@ -190,6 +183,4 @@ class InformationPostingViewController: UIViewController {
             }
         }
     }
-    
-    
 }
