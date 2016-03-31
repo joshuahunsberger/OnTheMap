@@ -48,10 +48,7 @@ class LocationTableViewController: StudentLocationViewController, UITableViewDel
             if let url = NSURL(string: link) {
                 app.openURL(url)
             } else {
-                let alert = UIAlertController(title: "Error", message: "Invalid URL", preferredStyle: .Alert)
-                let dismissAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
-                alert.addAction(dismissAction)
-                presentViewController(alert, animated: false, completion: nil)
+                Alert.alert(self, title: "Error", message: "Invalid URL")
             }
         }
     }
