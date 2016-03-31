@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     let attributes = [
         NSForegroundColorAttributeName : UIColor.whiteColor()
     ]
+    let textFieldDelegate = OnTheMapTextFieldDelegate()
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -23,7 +24,7 @@ class LoginViewController: UIViewController {
         
         // Use an invisible UI View to create padding for the left edge of the text fields.
         // As described by StackOverflow user Evil Trout here: http://stackoverflow.com/a/4423805
-        
+
         let emailPaddingView = UIView(frame: CGRectMake(0,0,10,30))
         let passwordPaddingView = UIView(frame: CGRectMake(0,0,10,30))
         emailTextField.leftView = emailPaddingView
@@ -33,6 +34,9 @@ class LoginViewController: UIViewController {
         
         emailTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: attributes)
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: attributes)
+        
+        emailTextField.delegate = textFieldDelegate
+        passwordTextField.delegate = textFieldDelegate
     }
 
     @IBAction func loginButtonPressed(sender: AnyObject) {
