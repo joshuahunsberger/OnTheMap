@@ -109,6 +109,21 @@ class InformationPostingViewController: UIViewController {
         self.activityIndicator.removeFromSuperview()
     }
     
+    func dismiss() {
+        if let navController = presentingViewController as? UINavigationController {
+            if let tab = navController.viewControllers[0] as? TabBarViewController {
+                if let vc = tab.selectedViewController as? StudentLocationViewController {
+                    dismissViewControllerAnimated(true) {
+                        vc.refresh()
+                        return
+                    }
+                }
+            }
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     //MARK: Interface Builder Action functions
     
     @IBAction func findButtonPressed(sender: AnyObject) {
@@ -181,7 +196,7 @@ class InformationPostingViewController: UIViewController {
     }
     
     @IBAction func cancelButtonPressed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss()
     }
     
     @IBAction func submitButtonPressed(sender: AnyObject) {
@@ -207,7 +222,7 @@ class InformationPostingViewController: UIViewController {
             if(success) {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.enableUIAndRemoveActivityIndicator()
-                    self.dismissViewControllerAnimated(true, completion: nil)
+                    self.dismiss()
                 }
             } else {
                 var errorString: String!
