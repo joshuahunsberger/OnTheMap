@@ -58,7 +58,7 @@
                                     <constraint firstAttribute="height" constant="30" id="GMU-a7-xsr"/>
                                     <constraint firstAttribute="width" constant="275" id="O0K-la-gEe"/>
                                 </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.93333333330000001" green="0.23921568630000001" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
@@ -69,7 +69,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Uk4-iI-pmK"/>
                                     <constraint firstAttribute="width" constant="275" id="cMw-LX-DFZ"/>
                                 </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.93333333330000001" green="0.23921568630000001" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
