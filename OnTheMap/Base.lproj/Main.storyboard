@@ -18,7 +18,6 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
-            <string>Roboto-Regular</string>
         </mutableArray>
         <mutableArray key="Roboto-Thin.ttf">
             <string>Roboto-Thin</string>
@@ -87,24 +86,14 @@
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gjm-jm-me6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzP-cd-1MV">
-                                <rect key="frame" x="163" y="311" width="178" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="178" id="Sx6-Nj-ocv"/>
-                                    <constraint firstAttribute="height" constant="21" id="wLy-Hj-N9h"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TlN-JV-wO6">
-                                <rect key="frame" x="349" y="306" width="60" height="32"/>
+                                <rect key="frame" x="179" y="306" width="242" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="gZd-Sf-dNx"/>
+                                    <constraint firstAttribute="width" constant="242" id="gZd-Sf-dNx"/>
                                     <constraint firstAttribute="height" constant="32" id="yrx-mc-dM0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                <state key="normal" title="Sign Up">
+                                <state key="normal" title="Don't have an account? Sign Up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -117,7 +106,6 @@
                             <constraint firstItem="NoR-9H-0Kd" firstAttribute="top" secondItem="Wt9-x9-e64" secondAttribute="bottom" constant="8" id="5ib-et-LMa"/>
                             <constraint firstItem="kyi-C2-Qft" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="B1W-OI-yt1"/>
                             <constraint firstItem="7Op-qt-Wkc" firstAttribute="top" secondItem="NoR-9H-0Kd" secondAttribute="bottom" constant="8" id="GCW-G1-RlB"/>
-                            <constraint firstItem="dzP-cd-1MV" firstAttribute="leading" secondItem="CAg-7u-9rH" secondAttribute="leading" id="GYd-UO-R6v"/>
                             <constraint firstItem="7Op-qt-Wkc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="POA-1Q-3m6"/>
                             <constraint firstItem="Wt9-x9-e64" firstAttribute="top" secondItem="kyi-C2-Qft" secondAttribute="bottom" constant="8" id="TL8-eH-vah"/>
                             <constraint firstItem="Wt9-x9-e64" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wl0-8U-pSW"/>
@@ -126,8 +114,7 @@
                             <constraint firstItem="NoR-9H-0Kd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h1o-by-wSN"/>
                             <constraint firstItem="CAg-7u-9rH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iNA-BR-R5v"/>
                             <constraint firstItem="kyi-C2-Qft" firstAttribute="centerX" secondItem="Wt9-x9-e64" secondAttribute="centerX" id="ok0-JP-faQ"/>
-                            <constraint firstItem="TlN-JV-wO6" firstAttribute="leading" secondItem="dzP-cd-1MV" secondAttribute="trailing" constant="8" id="sVd-vr-6WR"/>
-                            <constraint firstItem="dzP-cd-1MV" firstAttribute="top" secondItem="CAg-7u-9rH" secondAttribute="bottom" constant="13" id="suz-o6-Wyw"/>
+                            <constraint firstItem="TlN-JV-wO6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wEb-2Q-E3K"/>
                         </constraints>
                     </view>
                     <connections>
