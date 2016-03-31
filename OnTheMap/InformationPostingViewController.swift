@@ -206,7 +206,7 @@ class InformationPostingViewController: UIViewController {
             return
         }
         
-        guard let _ = NSURL(string: linkText) else {
+        guard let url = NSURL(string: linkText) where UIApplication.sharedApplication().canOpenURL(url) else {
             enableUIAndRemoveActivityIndicator()
             Alert.alert(self, title: "Error", message: "Cannot convert link to URL. Please submit a valid URL.")
             return
