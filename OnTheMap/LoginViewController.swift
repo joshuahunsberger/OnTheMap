@@ -22,6 +22,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureBackground()
+        
         // Use an invisible UI View to create padding for the left edge of the text fields.
         // As described by StackOverflow user Evil Trout here: http://stackoverflow.com/a/4423805
 
@@ -99,6 +101,17 @@ class LoginViewController: UIViewController {
         }
         alert.addAction(dismissAction)
         self.presentViewController(alert, animated: false, completion: nil)
+    }
+    
+    /// Function from the Udacity MovieManager example app to display a gradient background between two colors
+    private func configureBackground() {
+        let backgroundGradient = CAGradientLayer()
+        let colorTop = UIColor(red: 1, green: 152/255, blue: 12/255, alpha: 1.0).CGColor // R 255 G 152 B 12
+        let colorBottom = UIColor(red: 1, green: 111/255, blue: 0, alpha: 1.0).CGColor // R 255 G 111 B 0
+        backgroundGradient.colors = [colorTop, colorBottom]
+        backgroundGradient.locations = [0.0, 1.0]
+        backgroundGradient.frame = view.frame
+        view.layer.insertSublayer(backgroundGradient, atIndex: 0)
     }
     
 }
