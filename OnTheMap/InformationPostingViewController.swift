@@ -83,7 +83,7 @@ class InformationPostingViewController: UIViewController {
         self.presentViewController(alert, animated: false, completion: nil)
     }
     
-    func disableUIAndDisplayActivityIndicator(){
+    func disableUIAndDisplayActivityIndicator() {
         cancelButton.enabled = false
         if(state == ViewState.locationEntry) {
             findButton.enabled = false
@@ -95,6 +95,18 @@ class InformationPostingViewController: UIViewController {
         view.addSubview(activityIndicator)
         activityIndicator.center = view.center
         activityIndicator.startAnimating()
+    }
+    
+    func enableUIAndRemoveActivityIndicator() {
+        cancelButton.enabled = true
+        if(state == ViewState.locationEntry) {
+            findButton.enabled = true
+        } else {
+            submitButton.enabled = true
+        }
+        
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.removeFromSuperview()
     }
     
     //MARK: Interface Builder Action functions
