@@ -46,7 +46,7 @@ class LoginViewController: UIViewController {
         let password = passwordTextField.text!
         
         if(email == "" || password == "") {
-            alert("Error", message: "Enter a user name and password.")
+            Alert.alert(self, title: "Error", message: "Enter a user name and password.")
         } else {
             loginButton.enabled = false
             
@@ -78,7 +78,7 @@ class LoginViewController: UIViewController {
                     }
                     
                     dispatch_async(dispatch_get_main_queue()) {
-                        self.alert("Error", message: errorString)
+                        Alert.alert(self, title: "Error", message: errorString)
                         activityIndicator.stopAnimating()
                         activityIndicator.removeFromSuperview()
                         self.loginButton.enabled = true
@@ -92,15 +92,6 @@ class LoginViewController: UIViewController {
         let url = NSURL(string: "https://www.udacity.com/account/auth#!/signup")!
         let app = UIApplication.sharedApplication()
         app.openURL(url)
-    }
-    
-    func alert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        let dismissAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-            self.dismissViewControllerAnimated(false, completion: nil)
-        }
-        alert.addAction(dismissAction)
-        self.presentViewController(alert, animated: false, completion: nil)
     }
     
     /// Function from the Udacity MovieManager example app to display a gradient background between two colors
