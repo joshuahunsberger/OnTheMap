@@ -77,9 +77,7 @@ class InformationPostingViewController: UIViewController {
     
     func alert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        let dismissAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-            self.dismissViewControllerAnimated(false, completion: nil)
-        }
+        let dismissAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alert.addAction(dismissAction)
         self.presentViewController(alert, animated: false, completion: nil)
     }
