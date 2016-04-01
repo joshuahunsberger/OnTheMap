@@ -74,7 +74,7 @@ class LoginViewController: UIViewController {
                     if let error = error {
                         errorString = error.localizedDescription
                     } else {
-                        errorString = "Please try again"
+                        errorString = "There was an error completing your login. Please try again."
                     }
                     
                     dispatch_async(dispatch_get_main_queue()) {
