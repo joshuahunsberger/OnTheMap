@@ -14,16 +14,28 @@ struct StudentLocation {
     
     //MARK: Properties
     
-    var objectID: String?
-    let uniqueKey: String?
+    var objectID: String!
+    let uniqueKey: String!
     let firstName: String
     let lastName: String
-    let mapString: String?
+    let mapString: String!
     let mediaURL: String
     let latitude: Double
     let longitude: Double
     
     //MARK: Initializers
+    
+    init(studentDictionary: [String: AnyObject]) {
+        firstName = studentDictionary[ParseClient.JSONKeys.firstName] as! String
+        lastName = studentDictionary[ParseClient.JSONKeys.lastname] as! String
+        latitude = studentDictionary[ParseClient.JSONKeys.latitude] as! Double
+        longitude = studentDictionary[ParseClient.JSONKeys.longitude] as! Double
+        mediaURL = studentDictionary[ParseClient.JSONKeys.urlString] as! String
+        
+        objectID = studentDictionary[ParseClient.JSONKeys.objectId] as! String
+        uniqueKey = studentDictionary[ParseClient.JSONKeys.uniqueKey] as! String
+        mapString = studentDictionary[ParseClient.JSONKeys.mapString] as! String
+    }
     
     init(firstName: String, lastName: String, latitude: Double, longitude: Double, mediaURL: String) {
         self.firstName = firstName
