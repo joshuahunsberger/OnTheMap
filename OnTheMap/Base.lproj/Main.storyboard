@@ -193,7 +193,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSA-jq-sBF" userLabel="TopView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                 <subviews>
                                     <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Share a link here." textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WI1-Up-Agk">
                                         <rect key="frame" x="100" y="49" width="400" height="30"/>
@@ -204,27 +204,6 @@
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fC9-Di-Lp7">
-                                        <rect key="frame" x="272" y="149" width="57" height="24"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="20"/>
-                                        <color key="textColor" red="0.23921568630000001" green="0.46274509800000002" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="studying" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbf-Ak-yD2">
-                                        <rect key="frame" x="261" y="117" width="78" height="24"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                        <color key="textColor" red="0.23921568630000001" green="0.46274509800000002" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lln-Kc-XNw">
-                                        <rect key="frame" x="230" y="85" width="140" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="140" id="ccz-gK-vED"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="20"/>
-                                        <color key="textColor" red="0.23921568630000001" green="0.46274509800000002" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHk-L8-EHu">
                                         <rect key="frame" x="544" y="19" width="48" height="30"/>
                                         <constraints>
@@ -239,12 +218,33 @@
                                             <action selector="cancelButtonPressed:" destination="y6A-WU-1dS" eventType="touchUpInside" id="Wmq-Ia-N6X"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fC9-Di-Lp7">
+                                        <rect key="frame" x="272" y="113" width="57" height="24"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="20"/>
+                                        <color key="textColor" red="0.23921568630000001" green="0.46274509800000002" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="studying" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbf-Ak-yD2">
+                                        <rect key="frame" x="261" y="81" width="78" height="24"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                        <color key="textColor" red="0.23921568630000001" green="0.46274509800000002" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lln-Kc-XNw">
+                                        <rect key="frame" x="230" y="49" width="140" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="ccz-gK-vED"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="20"/>
+                                        <color key="textColor" red="0.23921568630000001" green="0.46274509800000002" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="iHk-L8-EHu" secondAttribute="trailing" constant="8" id="3XP-4M-N21"/>
                                     <constraint firstItem="iHk-L8-EHu" firstAttribute="top" secondItem="vSA-jq-sBF" secondAttribute="top" constant="19" id="4eL-GX-hWz"/>
-                                    <constraint firstAttribute="height" constant="200" id="KGa-AI-LuD"/>
+                                    <constraint firstAttribute="height" constant="150" id="KGa-AI-LuD"/>
                                     <constraint firstItem="sbf-Ak-yD2" firstAttribute="top" secondItem="lln-Kc-XNw" secondAttribute="bottom" constant="8" id="Sdu-OT-Bqn"/>
                                     <constraint firstItem="sbf-Ak-yD2" firstAttribute="centerX" secondItem="lln-Kc-XNw" secondAttribute="centerX" id="YTc-Na-Afx"/>
                                     <constraint firstItem="WI1-Up-Agk" firstAttribute="leading" secondItem="vSA-jq-sBF" secondAttribute="leading" constant="100" id="cFf-Z1-CQm"/>
@@ -253,17 +253,26 @@
                                     <constraint firstItem="WI1-Up-Agk" firstAttribute="top" secondItem="vSA-jq-sBF" secondAttribute="top" constant="49" id="lxA-yJ-DDC"/>
                                     <constraint firstItem="fC9-Di-Lp7" firstAttribute="centerX" secondItem="lln-Kc-XNw" secondAttribute="centerX" id="wfC-Wn-5rI"/>
                                     <constraint firstAttribute="trailing" secondItem="WI1-Up-Agk" secondAttribute="trailing" constant="100" id="xL4-FE-khA"/>
-                                    <constraint firstItem="lln-Kc-XNw" firstAttribute="top" secondItem="WI1-Up-Agk" secondAttribute="bottom" constant="6" id="zjs-EE-rUN"/>
+                                    <constraint firstItem="lln-Kc-XNw" firstAttribute="top" secondItem="WI1-Up-Agk" secondAttribute="bottom" constant="-30" id="zjs-EE-rUN"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I51-Pg-dga" userLabel="MiddleView">
-                                <rect key="frame" x="0.0" y="200" width="600" height="400"/>
+                                <rect key="frame" x="0.0" y="150" width="600" height="450"/>
                                 <subviews>
                                     <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LC5-F1-1Fo">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="450"/>
                                     </mapView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter your location here." textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRX-dy-rta">
+                                        <rect key="frame" x="8" y="8" width="584" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Qo0-DP-rjd"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxq-fa-jdA" userLabel="BottomView">
-                                        <rect key="frame" x="0.0" y="275" width="600" height="125"/>
+                                        <rect key="frame" x="0.0" y="325" width="600" height="125"/>
                                         <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="125" id="PEo-ao-z1h"/>
@@ -276,10 +285,11 @@
                                         </variation>
                                     </view>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biq-bY-m0i">
-                                        <rect key="frame" x="263" y="323" width="75" height="30"/>
+                                        <rect key="frame" x="263" y="373" width="75" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="CIK-SC-SB3"/>
+                                            <constraint firstAttribute="height" constant="30" id="aP8-YC-bSw"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <state key="normal" title="Submit">
@@ -290,10 +300,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkA-lF-DaT">
-                                        <rect key="frame" x="233" y="323" width="135" height="30"/>
+                                        <rect key="frame" x="233" y="373" width="135" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="135" id="0lr-wP-j1E"/>
+                                            <constraint firstAttribute="height" constant="30" id="V1R-0R-yFJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <state key="normal" title="Find on the Map">
@@ -303,15 +314,6 @@
                                             <action selector="findButtonPressed:" destination="y6A-WU-1dS" eventType="touchUpInside" id="ibl-8i-WfS"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter your location here." textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRX-dy-rta">
-                                        <rect key="frame" x="8" y="8" width="584" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Qo0-DP-rjd"/>
-                                        </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.23921568627450981" green="0.46274509803921571" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
