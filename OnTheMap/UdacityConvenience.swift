@@ -49,7 +49,7 @@ extension UdacityClient {
                 self.userID = userID
                 self.sessionID = sessionID
                 self.uniqueKey = uniqueKey
-                completionHandlerForSession(success: true, error: nil)
+                self.getName(completionHandlerForSession)
             }
         }
     }
