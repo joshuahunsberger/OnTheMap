@@ -14,7 +14,6 @@ struct StudentLocation {
     
     //MARK: Properties
     
-    var objectID: String!
     let uniqueKey: String!
     let firstName: String
     let lastName: String
@@ -32,7 +31,6 @@ struct StudentLocation {
         longitude = studentDictionary[ParseClient.JSONKeys.longitude] as! Double
         mediaURL = studentDictionary[ParseClient.JSONKeys.urlString] as! String
         
-        objectID = studentDictionary[ParseClient.JSONKeys.objectId] as! String
         uniqueKey = studentDictionary[ParseClient.JSONKeys.uniqueKey] as! String
         mapString = studentDictionary[ParseClient.JSONKeys.mapString] as! String
     }
@@ -45,7 +43,6 @@ struct StudentLocation {
         self.mediaURL = mediaURL
         
         // Initialize other properties to nil
-        self.objectID = nil
         self.uniqueKey = nil
         self.mapString = nil
     }
