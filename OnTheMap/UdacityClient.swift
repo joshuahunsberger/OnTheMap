@@ -22,6 +22,8 @@ class UdacityClient : NSObject {
     // Udacity user name
     var userFirstName: String?
     var userLastName: String?
+    // Unique key
+    var uniqueKey: String?
     
     // MARK: Initializer
     
