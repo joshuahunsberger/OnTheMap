@@ -196,7 +196,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                 <subviews>
                                     <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Share a link here." textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WI1-Up-Agk">
-                                        <rect key="frame" x="100" y="49" width="400" height="30"/>
+                                        <rect key="frame" x="8" y="49" width="584" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="lY1-mH-sVX"/>
                                         </constraints>
@@ -247,12 +247,12 @@
                                     <constraint firstAttribute="height" constant="150" id="KGa-AI-LuD"/>
                                     <constraint firstItem="sbf-Ak-yD2" firstAttribute="top" secondItem="lln-Kc-XNw" secondAttribute="bottom" constant="8" id="Sdu-OT-Bqn"/>
                                     <constraint firstItem="sbf-Ak-yD2" firstAttribute="centerX" secondItem="lln-Kc-XNw" secondAttribute="centerX" id="YTc-Na-Afx"/>
-                                    <constraint firstItem="WI1-Up-Agk" firstAttribute="leading" secondItem="vSA-jq-sBF" secondAttribute="leading" constant="100" id="cFf-Z1-CQm"/>
+                                    <constraint firstItem="WI1-Up-Agk" firstAttribute="leading" secondItem="vSA-jq-sBF" secondAttribute="leading" constant="8" id="cFf-Z1-CQm"/>
                                     <constraint firstItem="lln-Kc-XNw" firstAttribute="centerX" secondItem="vSA-jq-sBF" secondAttribute="centerX" id="ert-PQ-eQ8"/>
                                     <constraint firstItem="fC9-Di-Lp7" firstAttribute="top" secondItem="sbf-Ak-yD2" secondAttribute="bottom" constant="8" id="jPl-JR-fDH"/>
                                     <constraint firstItem="WI1-Up-Agk" firstAttribute="top" secondItem="vSA-jq-sBF" secondAttribute="top" constant="49" id="lxA-yJ-DDC"/>
                                     <constraint firstItem="fC9-Di-Lp7" firstAttribute="centerX" secondItem="lln-Kc-XNw" secondAttribute="centerX" id="wfC-Wn-5rI"/>
-                                    <constraint firstAttribute="trailing" secondItem="WI1-Up-Agk" secondAttribute="trailing" constant="100" id="xL4-FE-khA"/>
+                                    <constraint firstAttribute="trailing" secondItem="WI1-Up-Agk" secondAttribute="trailing" constant="8" id="xL4-FE-khA"/>
                                     <constraint firstItem="lln-Kc-XNw" firstAttribute="top" secondItem="WI1-Up-Agk" secondAttribute="bottom" constant="-30" id="zjs-EE-rUN"/>
                                 </constraints>
                             </view>
