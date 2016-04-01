@@ -41,8 +41,14 @@ extension UdacityClient {
                     return
                 }
                 
+                guard let uniqueKey = account[UdacityClient.JSONResponseKeys.accountKey] as? String else {
+                    completionHandlerForSession(success: false, error: NSError(domain: "postSession parsing uniqueKey", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse uniqueKey"]))
+                    return
+                }
+                
                 self.userID = userID
                 self.sessionID = sessionID
+                self.uniqueKey = uniqueKey
                 completionHandlerForSession(success: true, error: nil)
             }
         }
@@ -75,7 +81,7 @@ extension UdacityClient {
                 completionHandlerForGetUserData(success: false, error: error)
             } else {
                 guard let user = results[UdacityClient.JSONResponseKeys.user] as? [String: AnyObject] else {
-                    completionHandlerForGetUserData(success: false, error: NSError(domain: "getName parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse user dictionary"]))
+                    completionHandlerForGetUserData(success: false, error: NSError(domain: "getName parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse user dictionary."]))
                     return
                 }
                 
@@ -85,7 +91,7 @@ extension UdacityClient {
                 }
                 
                 guard let lastName = user[UdacityClient.JSONResponseKeys.userLastName] as? String else {
-                    completionHandlerForGetUserData(success: false, error: NSError(domain: "getName parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse last naem."]))
+                    completionHandlerForGetUserData(success: false, error: NSError(domain: "getName parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse last name."]))
                     return
                 }
                 
