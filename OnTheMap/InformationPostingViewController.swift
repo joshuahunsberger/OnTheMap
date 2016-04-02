@@ -214,7 +214,17 @@ class InformationPostingViewController: UIViewController {
             return
         }
         
-        let location = StudentLocation(firstName: UdacityClient.sharedInstance().userFirstName!, lastName: UdacityClient.sharedInstance().userLastName!, latitude: latitude!, longitude: longitude!, mediaURL: linkText)
+        let dictionary: [String : AnyObject] = [
+            ParseClient.JSONKeys.uniqueKey : UdacityClient.sharedInstance().uniqueKey!,
+            ParseClient.JSONKeys.firstName : UdacityClient.sharedInstance().userFirstName!,
+            ParseClient.JSONKeys.lastname : UdacityClient.sharedInstance().userLastName!,
+            ParseClient.JSONKeys.latitude : latitude!,
+            ParseClient.JSONKeys.longitude : longitude!,
+            ParseClient.JSONKeys.urlString : linkText,
+            ParseClient.JSONKeys.mapString : mapString
+        ]
+        
+        let location = StudentLocation(studentDictionary: dictionary)
         
         ParseClient.sharedInstance().postStudentLocation(location) { (success, error) in
             if(success) {
