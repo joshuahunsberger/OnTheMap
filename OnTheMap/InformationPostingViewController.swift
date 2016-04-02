@@ -23,6 +23,7 @@ class InformationPostingViewController: UIViewController {
     var state: ViewState!
     let blueColor = UIColor(red: 61/255, green: 118/255, blue: 167/255, alpha: 1)
     let grayColor = UIColor(red: 217/255, green: 217/255, blue: 213/255, alpha: 1)
+    var mapString: String!
     var latitude: Double!
     var longitude: Double!
     let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
@@ -175,6 +176,7 @@ class InformationPostingViewController: UIViewController {
                         return
                     }
                     
+                    self.mapString = address
                     self.latitude = location.coordinate.latitude
                     self.longitude = location.coordinate.longitude
                     
@@ -202,7 +204,7 @@ class InformationPostingViewController: UIViewController {
         
         if(linkText == "" || linkText == "Share a link here.") {
             enableUIAndRemoveActivityIndicator()
-            Alert.alert(self, title: "Error", message: "PLease enter a link before submitting.")
+            Alert.alert(self, title: "Error", message: "Please enter a link before submitting.")
             return
         }
         
