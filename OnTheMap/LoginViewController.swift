@@ -53,7 +53,9 @@ class LoginViewController: UIViewController {
             let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
             activityIndicator.activityIndicatorViewStyle = .Gray
             view.addSubview(activityIndicator)
+            activityIndicator.frame = view.frame
             activityIndicator.center = view.center
+            activityIndicator.layer.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.75).CGColor
             activityIndicator.startAnimating()
             
             UdacityClient.sharedInstance().postLogin(email, password: password) { (success, error) in
