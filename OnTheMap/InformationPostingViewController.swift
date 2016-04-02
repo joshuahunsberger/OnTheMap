@@ -49,6 +49,8 @@ class InformationPostingViewController: UIViewController {
         state = ViewState.locationEntry
         locationTextField.delegate = textFieldDelegate
         linkTextField.delegate = textFieldDelegate
+        
+        hideKeyboardWhenTappedAround()
     }
     
     //MARK: Helper functions
