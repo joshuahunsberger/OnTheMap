@@ -24,6 +24,8 @@ class UdacityClient : NSObject {
     var userLastName: String?
     // Unique key
     var uniqueKey: String?
+    // Most recent posted location
+    var mostRecentLocation: StudentLocation?
     
     // MARK: Initializer
     
