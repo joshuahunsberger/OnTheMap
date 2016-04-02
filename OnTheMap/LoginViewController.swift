@@ -39,6 +39,8 @@ class LoginViewController: UIViewController {
         
         emailTextField.delegate = textFieldDelegate
         passwordTextField.delegate = textFieldDelegate
+        
+        hideKeyboardWhenTappedAround()
     }
 
     @IBAction func loginButtonPressed(sender: AnyObject) {
@@ -107,4 +109,18 @@ class LoginViewController: UIViewController {
         view.layer.insertSublayer(backgroundGradient, atIndex: 0)
     }
     
+}
+
+// Extending UIViewController as suggested by StackOverflow user Esq here: http://stackoverflow.com/a/27079103
+// Need to add hideKeyboardWhenTappedAround() to each view controller that wants to tap to dismiss keyboard
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
