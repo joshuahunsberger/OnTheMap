@@ -90,7 +90,7 @@ class InformationPostingViewController: UIViewController {
         
         activityIndicator.activityIndicatorViewStyle = .Gray
         view.addSubview(activityIndicator)
-        activityIndicator.frame = self.view.frame
+        activityIndicator.frame = view.frame
         activityIndicator.center = view.center
         activityIndicator.layer.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.75).CGColor
         activityIndicator.startAnimating()
