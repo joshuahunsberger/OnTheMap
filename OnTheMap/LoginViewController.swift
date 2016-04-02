@@ -46,6 +46,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonPressed(sender: AnyObject) {
         let email = emailTextField.text!
         let password = passwordTextField.text!
+        dismissKeyboard()
         
         if(email == "" || password == "") {
             Alert.alert(self, title: "Error", message: "Enter a user name and password.")
