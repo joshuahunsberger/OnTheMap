@@ -59,6 +59,26 @@ class ParseClient: NSObject {
         return task
     }
     
+    // MARK: PUT
+    
+    func taskForPutMethod(method: String, parameters: [String: AnyObject]?, jsonBody: String, completionHandlerForPut: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        let request = NSMutableURLRequest(URL: parseURLFromParameters(method, parameters: parameters))
+        request.HTTPMethod = "PUT"
+        request.addValue(ParseClient.Constants.applicationID, forHTTPHeaderField: ParseClient.HTTPHeaders.appIDHeader)
+        request.addValue(ParseClient.Constants.RestApiKey, forHTTPHeaderField: ParseClient.HTTPHeaders.restAPIHeader)
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        request.HTTPBody = jsonBody.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+            self.processDataWithCompletionHandler(data, response: response, error: error, domain: "taskForPutMethod", completionHandlerForProcessData: completionHandlerForPut)
+        }
+        task.resume()
+        
+        return task
+    }
+    
     // MARK: Helpers
     
     func parseURLFromParameters(method: String, parameters: [String: AnyObject]?) -> NSURL {
