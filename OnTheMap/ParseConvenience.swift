@@ -181,4 +181,32 @@ extension ParseClient {
             }
         }
     }
+    
+    func putStudentLocation(location: StudentLocation, completionHandlerForPutLocation: (success: Bool, error: NSError?) -> Void) {
+        let objectID = location.objectID
+        let method = Methods.specificStudentLocation.stringByReplacingOccurrencesOfString("(key}", withString: objectID)
+        
+        var jsonBody = "{\"\(JSONKeys.uniqueKey)\": \"\(location.uniqueKey)\", "
+        jsonBody += "\"\(JSONKeys.firstName)\": \"\(location.firstName)\", "
+        jsonBody += "\"\(JSONKeys.lastname)\": \"\(location.lastName)\", "
+        jsonBody += "\"\(JSONKeys.mapString)\": \"\(location.mapString)\", "
+        jsonBody += "\"\(JSONKeys.urlString)\": \"\(location.mediaURL)\", "
+        jsonBody += "\"\(JSONKeys.latitude)\": \(location.latitude), "
+        jsonBody += "\"\(JSONKeys.longitude)\": \(location.longitude)}"
+        
+        taskForPutMethod(method, parameters: nil, jsonBody: jsonBody) { (results, error) in
+            guard error == nil else {
+                completionHandlerForPutLocation(success: false, error: error)
+                return
+            }
+            
+            guard let _ = results[JSONKeys.objectId] as? String else {
+                completionHandlerForPutLocation(success: false, error: NSError(domain: "putStudentLocation parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse object ID."]))
+                return
+            }
+            
+            UdacityClient.sharedInstance().mostRecentLocation = location
+            completionHandlerForPutLocation(success: true, error: nil)
+        }
+    }
 }
