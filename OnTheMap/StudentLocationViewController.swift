@@ -14,9 +14,11 @@ class StudentLocationViewController: UIViewController {
         
         // Display activity view indicator
         let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
-        activityIndicator.activityIndicatorViewStyle = .Gray
+        activityIndicator.activityIndicatorViewStyle = .WhiteLarge
         view.addSubview(activityIndicator)
+        activityIndicator.frame = view.frame
         activityIndicator.center = view.center
+        activityIndicator.layer.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.75).CGColor
         activityIndicator.startAnimating()
         
         // Get new list of student locations from Parse
