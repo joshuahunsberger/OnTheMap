@@ -34,7 +34,23 @@ class TabBarViewController: UITabBarController {
     }
     
     @IBAction func newLocationButtonPressed(sender: UIBarButtonItem) {
-        let informationPostingView = storyboard!.instantiateViewControllerWithIdentifier("InformationPostingView") as! InformationPostingViewController
-        presentViewController(informationPostingView, animated: true, completion: nil)
+        if UdacityClient.sharedInstance().mostRecentLocation != nil {
+            var message = "There is alread a Student Location posted for user "
+            message += "\(UdacityClient.sharedInstance().userFirstName!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())) "
+            message += "\(UdacityClient.sharedInstance().userLastName!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())). "
+            message += "Do you wish to overwrite this location?"
+            let alert = UIAlertController(title: "Existing Location", message: message, preferredStyle: .Alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+            let overwriteAction = UIAlertAction(title: "Overwrite", style: .Destructive) { (action) in
+                let informationPostingView = self.storyboard!.instantiateViewControllerWithIdentifier("InformationPostingView") as! InformationPostingViewController
+                self.presentViewController(informationPostingView, animated: true, completion: nil)
+            }
+            alert.addAction(overwriteAction)
+            alert.addAction(cancelAction)
+            presentViewController(alert, animated: true, completion: nil)
+        } else {
+            let informationPostingView = storyboard!.instantiateViewControllerWithIdentifier("InformationPostingView") as! InformationPostingViewController
+            presentViewController(informationPostingView, animated: true, completion: nil)
+        }
     }
 }
