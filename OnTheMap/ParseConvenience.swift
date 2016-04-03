@@ -79,7 +79,8 @@ extension ParseClient {
                 }
                 
                 self.studentLocations = studentLocations
-                completionHandlerForGetLocations(success: true, error: nil)
+                self.queryStudentLocationByUniqueKey(UdacityClient.sharedInstance().uniqueKey!, completionHandlerForQueryLocation: completionHandlerForGetLocations)
+                //completionHandlerForGetLocations(success: true, error: nil)
             }
         }
     }
@@ -107,6 +108,76 @@ extension ParseClient {
                 completionHandlerForPostLocation(success: true, error: nil)
             }
             
+        }
+    }
+    
+    func queryStudentLocationByUniqueKey(key: String, completionHandlerForQueryLocation: (success: Bool, error: NSError?) -> Void) {
+        
+        let parameters: [String: AnyObject] = [
+            "where" : "{\"uniqueKey\":\"\(key)\"}",
+            "order" : "-updatedAt",
+            "limit" : 1
+        ]
+        
+        taskForGetMethod(Methods.studentLocations, parameters: parameters) { (results, error) in
+            guard error == nil else {
+                completionHandlerForQueryLocation(success: false, error: error)
+                return
+            }
+            
+            guard let locationList = results[JSONKeys.results] as? [[String: AnyObject]] else {
+                completionHandlerForQueryLocation(success: false, error: NSError(domain: "queryStudentLocations parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse results list."]))
+                return
+            }
+            
+            if(!locationList.isEmpty){
+                // Existing post, check values
+                let location = locationList[0]
+                
+                guard let _ = location[JSONKeys.firstName] as? String else {
+                    completionHandlerForQueryLocation(success: false, error: NSError(domain: "queryStudentLocations parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse first name."]))
+                    return
+                }
+                
+                guard let _ = location[JSONKeys.lastname] as? String else {
+                    completionHandlerForQueryLocation(success: false, error: NSError(domain: "queryStudentLocations parsing", code: 2, userInfo: [NSLocalizedDescriptionKey: "Could not parse last name."]))
+                    return
+                }
+                
+                guard let _ = location[JSONKeys.latitude] as? Double else {
+                    completionHandlerForQueryLocation(success: false, error: NSError(domain: "queryStudentLocations parsing", code: 3, userInfo: [NSLocalizedDescriptionKey: "Could not parse latitude."]))
+                    return
+                }
+                
+                guard let _ = location[JSONKeys.longitude] as? Double else {
+                    completionHandlerForQueryLocation(success: false, error: NSError(domain: "queryStudentLocations parsing", code: 4, userInfo: [NSLocalizedDescriptionKey: "Could not parse longitude."]))
+                    return
+                }
+                
+                guard let _ = location[JSONKeys.urlString] as? String else {
+                    completionHandlerForQueryLocation(success: false, error: NSError(domain: "queryStudentLocations parsing", code: 5, userInfo: [NSLocalizedDescriptionKey: "Could not parse URL."]))
+                    return
+                }
+                
+                guard let _ = location[JSONKeys.objectId] as? String else {
+                    completionHandlerForQueryLocation(success: false, error: NSError(domain: "queryStudentLocations parsing", code: 6, userInfo: [NSLocalizedDescriptionKey: "Could not parse objectID."]))
+                    return
+                }
+                
+                guard let _ = location[JSONKeys.uniqueKey] as? String else {
+                    completionHandlerForQueryLocation(success: false, error: NSError(domain: "queryStudentLocations parsing", code: 7, userInfo: [NSLocalizedDescriptionKey: "Could not parse uniqueKey."]))
+                    return
+                }
+                
+                guard let _ = location[JSONKeys.mapString] as? String else {
+                    completionHandlerForQueryLocation(success: false, error: NSError(domain: "queryStudentLocations parsing", code: 8, userInfo: [NSLocalizedDescriptionKey: "Could not parse mapString."]))
+                    return
+                }
+                
+                UdacityClient.sharedInstance().mostRecentLocation = StudentLocation(studentDictionary: location)
+                
+                completionHandlerForQueryLocation(success: true, error: nil)
+            }
         }
     }
 }
