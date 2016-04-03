@@ -38,23 +38,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Udacity" translatesAutoresizingMaskIntoConstraints="NO" id="kyi-C2-Qft">
-                                <rect key="frame" x="236" y="28" width="128" height="128"/>
+                                <rect key="frame" x="250" y="28" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="5UH-0i-GT7"/>
-                                    <constraint firstAttribute="width" constant="128" id="xRW-U1-QPQ"/>
+                                    <constraint firstAttribute="height" constant="100" id="5UH-0i-GT7"/>
+                                    <constraint firstAttribute="width" constant="100" id="xRW-U1-QPQ"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wt9-x9-e64">
-                                <rect key="frame" x="236" y="164" width="129" height="20"/>
+                                <rect key="frame" x="236" y="136" width="129" height="20"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="136" y="164" width="130" height="20"/>
+                                </variation>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NoR-9H-0Kd">
-                                <rect key="frame" x="163" y="192" width="275" height="30"/>
+                                <rect key="frame" x="163" y="164" width="275" height="40"/>
                                 <color key="backgroundColor" red="0.99215686274509807" green="0.72941176470588232" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="GMU-a7-xsr"/>
+                                    <constraint firstAttribute="height" constant="40" id="GMU-a7-xsr"/>
                                     <constraint firstAttribute="width" constant="275" id="O0K-la-gEe"/>
                                 </constraints>
                                 <color key="textColor" red="0.93333333330000001" green="0.23921568630000001" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -62,10 +65,10 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Op-qt-Wkc">
-                                <rect key="frame" x="163" y="230" width="275" height="30"/>
+                                <rect key="frame" x="163" y="212" width="275" height="40"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.72941176470000002" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Uk4-iI-pmK"/>
+                                    <constraint firstAttribute="height" constant="40" id="Uk4-iI-pmK"/>
                                     <constraint firstAttribute="width" constant="275" id="cMw-LX-DFZ"/>
                                 </constraints>
                                 <color key="textColor" red="0.93333333330000001" green="0.23921568630000001" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -73,9 +76,10 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAg-7u-9rH">
-                                <rect key="frame" x="163" y="268" width="275" height="30"/>
+                                <rect key="frame" x="163" y="260" width="275" height="40"/>
                                 <color key="backgroundColor" red="0.93333333333333335" green="0.23921568627450981" blue="0.027450980392156862" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="I5v-z8-f1U"/>
                                     <constraint firstAttribute="width" constant="275" id="jI6-KM-ZB5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -87,7 +91,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TlN-JV-wO6">
-                                <rect key="frame" x="179" y="306" width="242" height="32"/>
+                                <rect key="frame" x="179" y="308" width="242" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="242" id="gZd-Sf-dNx"/>
                                     <constraint firstAttribute="height" constant="32" id="yrx-mc-dM0"/>
@@ -223,12 +227,18 @@
                                         <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="20"/>
                                         <color key="textColor" red="0.23921568630000001" green="0.46274509800000002" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="169" y="113" width="62" height="24"/>
+                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="studying" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbf-Ak-yD2">
                                         <rect key="frame" x="261" y="81" width="78" height="24"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                         <color key="textColor" red="0.23921568630000001" green="0.46274509800000002" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="162" y="81" width="77" height="24"/>
+                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lln-Kc-XNw">
                                         <rect key="frame" x="230" y="49" width="140" height="24"/>
