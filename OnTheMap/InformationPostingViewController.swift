@@ -218,36 +218,64 @@ class InformationPostingViewController: UIViewController {
             return
         }
         
-        let dictionary: [String : AnyObject] = [
-            ParseClient.JSONKeys.uniqueKey : UdacityClient.sharedInstance().uniqueKey!,
-            ParseClient.JSONKeys.firstName : UdacityClient.sharedInstance().userFirstName!,
-            ParseClient.JSONKeys.lastname : UdacityClient.sharedInstance().userLastName!,
-            ParseClient.JSONKeys.latitude : latitude!,
-            ParseClient.JSONKeys.longitude : longitude!,
-            ParseClient.JSONKeys.urlString : linkText,
-            ParseClient.JSONKeys.mapString : mapString
-        ]
-        
-        let location = StudentLocation(studentDictionary: dictionary)
-        
-        ParseClient.sharedInstance().postStudentLocation(location) { (success, error) in
-            if(success) {
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.enableUIAndRemoveActivityIndicator()
-                    self.dismiss()
-                }
-            } else {
-                var errorString: String!
-                
-                if let error = error {
-                    errorString = error.localizedDescription
+        if var existingLocation = UdacityClient.sharedInstance().mostRecentLocation {
+            existingLocation.latitude = latitude
+            existingLocation.longitude = longitude
+            existingLocation.mapString = mapString
+            existingLocation.mediaURL = linkText
+            
+            ParseClient.sharedInstance().putStudentLocation(existingLocation) { (success, error) in
+                if(success) {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.enableUIAndRemoveActivityIndicator()
+                        self.dismiss()
+                    }
                 } else {
-                    errorString = "Please try again"
+                    var errorString: String!
+                    
+                    if let error = error {
+                        errorString = error.localizedDescription
+                    } else {
+                        errorString = "An unknown error occurred. Please try again."
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.enableUIAndRemoveActivityIndicator()
+                        Alert.alert(self, title: "Error", message: errorString)
+                    }
                 }
-                
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.enableUIAndRemoveActivityIndicator()
-                    Alert.alert(self, title: "Error", message: errorString)
+            }
+        } else {
+            let dictionary: [String : AnyObject] = [
+                ParseClient.JSONKeys.uniqueKey : UdacityClient.sharedInstance().uniqueKey!,
+                ParseClient.JSONKeys.firstName : UdacityClient.sharedInstance().userFirstName!,
+                ParseClient.JSONKeys.lastname : UdacityClient.sharedInstance().userLastName!,
+                ParseClient.JSONKeys.latitude : latitude,
+                ParseClient.JSONKeys.longitude : longitude,
+                ParseClient.JSONKeys.urlString : linkText,
+                ParseClient.JSONKeys.mapString : mapString
+            ]
+            let newLocation = StudentLocation(studentDictionary: dictionary)
+
+            ParseClient.sharedInstance().postStudentLocation(newLocation) { (success, error) in
+                if(success) {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.enableUIAndRemoveActivityIndicator()
+                        self.dismiss()
+                    }
+                } else {
+                    var errorString: String!
+                    
+                    if let error = error {
+                        errorString = error.localizedDescription
+                    } else {
+                        errorString = "Please try again"
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.enableUIAndRemoveActivityIndicator()
+                        Alert.alert(self, title: "Error", message: errorString)
+                    }
                 }
             }
         }
