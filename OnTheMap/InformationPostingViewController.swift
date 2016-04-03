@@ -90,7 +90,7 @@ class InformationPostingViewController: UIViewController {
             submitButton.enabled = false
         }
         
-        activityIndicator.activityIndicatorViewStyle = .Gray
+        activityIndicator.activityIndicatorViewStyle = .WhiteLarge
         view.addSubview(activityIndicator)
         activityIndicator.frame = view.frame
         activityIndicator.center = view.center
