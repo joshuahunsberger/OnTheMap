@@ -201,8 +201,8 @@ extension ParseClient {
                 return
             }
             
-            guard let _ = results[JSONKeys.objectId] as? String else {
-                completionHandlerForPutLocation(success: false, error: NSError(domain: "putStudentLocation parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse object ID."]))
+            guard let _ = results[JSONKeys.updatedAt] as? String else {
+                completionHandlerForPutLocation(success: false, error: NSError(domain: "putStudentLocation parsing", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not parse updated time."]))
                 return
             }
             
