@@ -89,7 +89,7 @@ extension ParseClient {
         var jsonBody = "{\"\(JSONKeys.uniqueKey)\": \"\(location.uniqueKey)\", "
         jsonBody += "\"\(JSONKeys.firstName)\": \"\(location.firstName)\", "
         jsonBody += "\"\(JSONKeys.lastname)\": \"\(location.lastName)\", "
-        jsonBody += "\"\(JSONKeys.mapString)\": \"\(location.mapString!)\", "
+        jsonBody += "\"\(JSONKeys.mapString)\": \"\(location.mapString)\", "
         jsonBody += "\"\(JSONKeys.urlString)\": \"\(location.mediaURL)\", "
         jsonBody += "\"\(JSONKeys.latitude)\": \(location.latitude), "
         jsonBody += "\"\(JSONKeys.longitude)\": \(location.longitude)}"
