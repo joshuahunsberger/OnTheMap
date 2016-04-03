@@ -184,7 +184,8 @@ extension ParseClient {
     
     func putStudentLocation(location: StudentLocation, completionHandlerForPutLocation: (success: Bool, error: NSError?) -> Void) {
         let objectID = location.objectID
-        let method = Methods.specificStudentLocation.stringByReplacingOccurrencesOfString("(key}", withString: objectID)
+        let method = Methods.specificStudentLocation.stringByReplacingOccurrencesOfString("{key}", withString: objectID)
+        
         
         var jsonBody = "{\"\(JSONKeys.uniqueKey)\": \"\(location.uniqueKey)\", "
         jsonBody += "\"\(JSONKeys.firstName)\": \"\(location.firstName)\", "
