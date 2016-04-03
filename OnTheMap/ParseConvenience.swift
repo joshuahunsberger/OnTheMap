@@ -105,6 +105,7 @@ extension ParseClient {
                     return
                 }
                 
+                UdacityClient.sharedInstance().mostRecentLocation = location
                 completionHandlerForPostLocation(success: true, error: nil)
             }
             
