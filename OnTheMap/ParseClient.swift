@@ -126,7 +126,12 @@ class ParseClient: NSObject {
             return
         }
         
-        guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+        guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode else {
+            sendError("Unable to retrieve status code.")
+            return
+        }
+        
+        guard statusCode >= 200 && statusCode <= 299 else {
             sendError("Request returned invalid status code.")
             return
         }
