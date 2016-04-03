@@ -30,6 +30,7 @@ extension ParseClient {
     
     struct Methods {
         static let studentLocations = "StudentLocation"
+        static let specificStudentLocation = "StudentLocation/{key}"
     }
     
     // MARK: HTTP Headers
